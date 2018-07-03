@@ -46,7 +46,6 @@ class Chart extends React.Component<{}, IChartState> {
                             newArr.push('/')
                           }
                         }
-                        console.log(new Date(newArr.join('')))
                         return new Date(newArr.join(''))
                       }} 
                       y="TTLSAMS" />
