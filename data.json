@@ -1,804 +1,2362 @@
 {
-  "recordset": [
+  "recordsets": [
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180203,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 30810,
+      "TTLMAC": 540
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180203,
-      "SAMS": 18,
-      "PRODQTY": 1100,
-      "SAMPRD": 19800,
-      "NOFMAC": 40
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 99469,
+      "TTLMAC": 1530
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180202,
-      "SAMS": 18,
-      "PRODQTY": 739,
-      "SAMPRD": 13302,
-      "NOFMAC": 40
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 72369,
+      "TTLMAC": 840
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180205,
-      "SAMS": 12.14,
-      "PRODQTY": 1100,
-      "SAMPRD": 13354,
-      "NOFMAC": 40
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 61100,
+      "TTLMAC": 960
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180206,
-      "SAMS": 18,
-      "PRODQTY": 1100,
-      "SAMPRD": 19800,
-      "NOFMAC": 40
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 92718,
+      "TTLMAC": 1200
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180207,
-      "SAMS": 16,
-      "PRODQTY": 130,
-      "SAMPRD": 2080,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180203,
-      "SAMS": 0.5,
-      "PRODQTY": 5300,
-      "SAMPRD": 2650,
-      "NOFMAC": 200
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180205,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180209,
-      "SAMS": 18,
-      "PRODQTY": 1953,
-      "SAMPRD": 35154,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180203,
-      "SAMS": 12.14,
-      "PRODQTY": 1100,
-      "SAMPRD": 13354,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180206,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180203,
-      "SAMS": 50,
-      "PRODQTY": 1100,
-      "SAMPRD": 55000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180208,
-      "SAMS": 18,
-      "PRODQTY": 2200,
-      "SAMPRD": 39600,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180207,
-      "SAMS": 22,
-      "PRODQTY": 870,
-      "SAMPRD": 19140,
-      "NOFMAC": 40
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 175160,
+      "TTLMAC": 2160
     },
     {
       "LOCATION": "IDEPL1",
-      "PRDDATE": 20180206,
-      "SAMS": 17,
-      "PRODQTY": 650,
-      "SAMPRD": 11050,
-      "NOFMAC": 40
+      "PRDDATE": 20180618,
+      "TTLSAMS": 53574,
+      "TTLMAC": 600
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180206,
-      "SAMS": 12.14,
-      "PRODQTY": 934,
-      "SAMPRD": 11338.76,
-      "NOFMAC": 40
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 15550,
+      "TTLMAC": 270
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180205,
-      "SAMS": 22,
-      "PRODQTY": 750,
-      "SAMPRD": 16500,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180202,
-      "SAMS": 11,
-      "PRODQTY": 3600,
-      "SAMPRD": 39600,
-      "NOFMAC": 160
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 49073,
+      "TTLMAC": 930
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180202,
-      "SAMS": 19,
-      "PRODQTY": 500,
-      "SAMPRD": 9500,
-      "NOFMAC": 50
+      "PRDDATE": 20180622,
+      "TTLSAMS": 60588,
+      "TTLMAC": 600
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180209,
-      "SAMS": 13,
-      "PRODQTY": 55,
-      "SAMPRD": 715,
-      "NOFMAC": 40
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 201293,
+      "TTLMAC": 1920
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180201,
-      "SAMS": 0.5,
-      "PRODQTY": 3300,
-      "SAMPRD": 1650,
-      "NOFMAC": 160
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 54100,
+      "TTLMAC": 720
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180201,
-      "SAMS": 12.14,
-      "PRODQTY": 2200,
-      "SAMPRD": 26708,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180203,
-      "SAMS": 14,
-      "PRODQTY": 1300,
-      "SAMPRD": 18200,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180208,
-      "SAMS": 22,
-      "PRODQTY": 379,
-      "SAMPRD": 8338,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180208,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180202,
-      "SAMS": 14,
-      "PRODQTY": 2400,
-      "SAMPRD": 33600,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180201,
-      "SAMS": 17,
-      "PRODQTY": 500,
-      "SAMPRD": 8500,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180201,
-      "SAMS": 22,
-      "PRODQTY": 1650,
-      "SAMPRD": 36300,
-      "NOFMAC": 80
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 18980,
+      "TTLMAC": 480
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180205,
-      "SAMS": 19,
-      "PRODQTY": 1684,
-      "SAMPRD": 31996,
-      "NOFMAC": 150
+      "PRDDATE": 20180627,
+      "TTLSAMS": 12325,
+      "TTLMAC": 150
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 104717,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 17290,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 58134,
+      "TTLMAC": 990
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 54685,
+      "TTLMAC": 600
     },
     {
       "LOCATION": "ID1   ",
-      "PRDDATE": 20180201,
-      "SAMS": 22,
-      "PRODQTY": 776,
-      "SAMPRD": 17072,
-      "NOFMAC": 80
+      "PRDDATE": 20180602,
+      "TTLSAMS": 13500,
+      "TTLMAC": 240
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180202,
-      "SAMS": 17,
-      "PRODQTY": 650,
-      "SAMPRD": 11050,
-      "NOFMAC": 40
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 44936,
+      "TTLMAC": 840
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180202,
-      "SAMS": 22,
-      "PRODQTY": 1600,
-      "SAMPRD": 35200,
-      "NOFMAC": 80
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 66825,
+      "TTLMAC": 1200
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180201,
-      "SAMS": 19,
-      "PRODQTY": 962,
-      "SAMPRD": 18278,
-      "NOFMAC": 100
+      "PRDDATE": 20180606,
+      "TTLSAMS": 59149,
+      "TTLMAC": 750
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180207,
-      "SAMS": 14,
-      "PRODQTY": 1000,
-      "SAMPRD": 14000,
-      "NOFMAC": 40
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 91106,
+      "TTLMAC": 315
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180202,
-      "SAMS": 0.5,
-      "PRODQTY": 3200,
-      "SAMPRD": 1600,
-      "NOFMAC": 160
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 62075,
+      "TTLMAC": 960
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180208,
-      "SAMS": 14,
-      "PRODQTY": 1500,
-      "SAMPRD": 21000,
-      "NOFMAC": 40
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 56810,
+      "TTLMAC": 720
     },
     {
-      "LOCATION": "IDEPL3",
-      "PRDDATE": 20180208,
-      "SAMS": 16,
-      "PRODQTY": 72,
-      "SAMPRD": 1152,
-      "NOFMAC": 50
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 40440,
+      "TTLMAC": 690
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180201,
-      "SAMS": 0.5,
-      "PRODQTY": 5952,
-      "SAMPRD": 2976,
-      "NOFMAC": 320
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 53309,
+      "TTLMAC": 720
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180208,
-      "SAMS": 17,
-      "PRODQTY": 650,
-      "SAMPRD": 11050,
-      "NOFMAC": 40
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 78775,
+      "TTLMAC": 840
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180205,
-      "SAMS": 14,
-      "PRODQTY": 1300,
-      "SAMPRD": 18200,
-      "NOFMAC": 80
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 13900,
+      "TTLMAC": 360
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180206,
-      "SAMS": 0.5,
-      "PRODQTY": 1600,
-      "SAMPRD": 800,
-      "NOFMAC": 80
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180616,
+      "TTLSAMS": 96475,
+      "TTLMAC": 840
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180210,
-      "SAMS": 17,
-      "PRODQTY": 650,
-      "SAMPRD": 11050,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180210,
-      "SAMS": 0.5,
-      "PRODQTY": 5700,
-      "SAMPRD": 2850,
-      "NOFMAC": 240
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180207,
-      "SAMS": 18,
-      "PRODQTY": 1886,
-      "SAMPRD": 33948,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180206,
-      "SAMS": 22,
-      "PRODQTY": 800,
-      "SAMPRD": 17600,
-      "NOFMAC": 40
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 70301,
+      "TTLMAC": 720
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180205,
-      "SAMS": 16.02,
-      "PRODQTY": 657,
-      "SAMPRD": 10525.14,
-      "NOFMAC": 50
+      "PRDDATE": 20180620,
+      "TTLSAMS": 57347,
+      "TTLMAC": 600
     },
     {
-      "LOCATION": "IDEPL3",
-      "PRDDATE": 20180207,
-      "SAMS": 19,
-      "PRODQTY": 540,
-      "SAMPRD": 10260,
-      "NOFMAC": 100
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 29450,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 160571,
+      "TTLMAC": 2040
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 43700,
+      "TTLMAC": 480
     },
     {
       "LOCATION": "IDEPL1",
-      "PRDDATE": 20180210,
-      "SAMS": 10,
-      "PRODQTY": 900,
-      "SAMPRD": 9000,
-      "NOFMAC": 40
+      "PRDDATE": 20180626,
+      "TTLSAMS": 81980,
+      "TTLMAC": 720
     },
     {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180207,
-      "SAMS": 22,
-      "PRODQTY": 109,
-      "SAMPRD": 2398,
-      "NOFMAC": 40
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 24520,
+      "TTLMAC": 600
     },
     {
       "LOCATION": "ID1   ",
-      "PRDDATE": 20180205,
-      "SAMS": 0.5,
-      "PRODQTY": 5300,
-      "SAMPRD": 2650,
-      "NOFMAC": 200
+      "PRDDATE": 20180628,
+      "TTLSAMS": 52250,
+      "TTLMAC": 480
     },
     {
-      "LOCATION": "IDEPL3",
-      "PRDDATE": 20180203,
-      "SAMS": 16,
-      "PRODQTY": 1281,
-      "SAMPRD": 20496,
-      "NOFMAC": 100
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 33009,
+      "TTLMAC": 930
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180209,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180207,
-      "SAMS": 0.5,
-      "PRODQTY": 218,
-      "SAMPRD": 109,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "IDEPL3",
-      "PRDDATE": 20180209,
-      "SAMS": 19,
-      "PRODQTY": 900,
-      "SAMPRD": 17100,
-      "NOFMAC": 100
-    },
-    {
-      "LOCATION": "IDEPL3",
-      "PRDDATE": 20180205,
-      "SAMS": 16,
-      "PRODQTY": 700,
-      "SAMPRD": 11200,
-      "NOFMAC": 100
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180205,
-      "SAMS": 50,
-      "PRODQTY": 1100,
-      "SAMPRD": 55000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID2   ",
-      "PRDDATE": 20180203,
-      "SAMS": 22,
-      "PRODQTY": 1100,
-      "SAMPRD": 24200,
-      "NOFMAC": 80
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 87115,
+      "TTLMAC": 1080
     },
     {
       "LOCATION": "IDEPL1",
-      "PRDDATE": 20180202,
-      "SAMS": 0.5,
-      "PRODQTY": 13300,
-      "SAMPRD": 6650,
-      "NOFMAC": 640
+      "PRDDATE": 20180601,
+      "TTLSAMS": 93675,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 52498,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 90600,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 41750,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 11813,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 39920,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 65577,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 63450,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 17500,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 25200,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 96900,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 97325,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 30784,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 45600,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 55250,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 75450,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 65200,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 102853,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 69300,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 57850,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 145303,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 20618,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 24300,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 31636,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 77363,
+      "TTLMAC": 1320
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 18600,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 53635,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 85213,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 92769,
+      "TTLMAC": 960
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180210,
-      "SAMS": 16,
-      "PRODQTY": 985,
-      "SAMPRD": 15760,
-      "NOFMAC": 100
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180202,
-      "SAMS": 18,
-      "PRODQTY": 2450,
-      "SAMPRD": 44100,
-      "NOFMAC": 280
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180202,
-      "SAMS": 0.5,
-      "PRODQTY": 5661,
-      "SAMPRD": 2830.5,
-      "NOFMAC": 280
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180205,
-      "SAMS": 9,
-      "PRODQTY": 2976,
-      "SAMPRD": 26784,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180201,
-      "SAMS": 18,
-      "PRODQTY": 2249,
-      "SAMPRD": 40482,
-      "NOFMAC": 160
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180202,
-      "SAMS": 50,
-      "PRODQTY": 739,
-      "SAMPRD": 36950,
-      "NOFMAC": 40
+      "PRDDATE": 20180608,
+      "TTLSAMS": 38700,
+      "TTLMAC": 450
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180209,
-      "SAMS": 16,
-      "PRODQTY": 1164,
-      "SAMPRD": 18624,
-      "NOFMAC": 100
+      "PRDDATE": 20180611,
+      "TTLSAMS": 102353,
+      "TTLMAC": 750
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 160721,
+      "TTLMAC": 1920
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 36570,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 86493,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 29470,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180616,
+      "TTLSAMS": 58350,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 64178,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 79565,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 50861,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 10450,
+      "TTLMAC": 240
     },
     {
       "LOCATION": "IDEPL1",
-      "PRDDATE": 20180206,
-      "SAMS": 0.5,
-      "PRODQTY": 13200,
-      "SAMPRD": 6600,
-      "NOFMAC": 640
+      "PRDDATE": 20180621,
+      "TTLSAMS": 92785,
+      "TTLMAC": 720
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180201,
-      "SAMS": 11,
-      "PRODQTY": 4850,
-      "SAMPRD": 53350,
-      "NOFMAC": 240
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 29170,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 44020,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 27800,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 59679,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 57422,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 50132,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 12240,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 147946,
+      "TTLMAC": 2160
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 183741,
+      "TTLMAC": 1920
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 49713,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 59800,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 91508,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 17025,
+      "TTLMAC": 600
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180202,
-      "SAMS": 16,
-      "PRODQTY": 970,
-      "SAMPRD": 15520,
-      "NOFMAC": 50
+      "PRDDATE": 20180612,
+      "TTLSAMS": 27528,
+      "TTLMAC": 450
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 168358,
+      "TTLMAC": 2160
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 92160,
+      "TTLMAC": 945
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 68128,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 45268,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 98175,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180617,
+      "TTLSAMS": 58840,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 45197,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 204284,
+      "TTLMAC": 2280
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 102121,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 80200,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 57200,
+      "TTLMAC": 840
     },
     {
       "LOCATION": "ID1   ",
-      "PRDDATE": 20180207,
-      "SAMS": 0.5,
-      "PRODQTY": 3886,
-      "SAMPRD": 1943,
-      "NOFMAC": 240
+      "PRDDATE": 20180629,
+      "TTLSAMS": 57000,
+      "TTLMAC": 480
     },
     {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180205,
-      "SAMS": 0.5,
-      "PRODQTY": 12800,
-      "SAMPRD": 6400,
-      "NOFMAC": 640
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 87555,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 54263,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 67000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 14620,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 98744,
+      "TTLMAC": 960
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180206,
-      "SAMS": 16.02,
-      "PRODQTY": 204,
-      "SAMPRD": 3268.08,
-      "NOFMAC": 50
+      "PRDDATE": 20180602,
+      "TTLSAMS": 192240,
+      "TTLMAC": 900
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180207,
-      "SAMS": 50,
-      "PRODQTY": 1886,
-      "SAMPRD": 94300,
-      "NOFMAC": 80
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 40272,
+      "TTLMAC": 600
     },
     {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180209,
-      "SAMS": 0.5,
-      "PRODQTY": 4063,
-      "SAMPRD": 2031.5,
-      "NOFMAC": 240
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180207,
-      "SAMS": 16,
-      "PRODQTY": 6706,
-      "SAMPRD": 107296,
-      "NOFMAC": 400
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180202,
-      "SAMS": 22,
-      "PRODQTY": 1000,
-      "SAMPRD": 22000,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180207,
-      "SAMS": 11,
-      "PRODQTY": 5100,
-      "SAMPRD": 56100,
-      "NOFMAC": 240
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180202,
-      "SAMS": 12.92,
-      "PRODQTY": 2242,
-      "SAMPRD": 28966.64,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180201,
-      "SAMS": 9,
-      "PRODQTY": 1814,
-      "SAMPRD": 16326,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180203,
-      "SAMS": 9,
-      "PRODQTY": 3006,
-      "SAMPRD": 27054,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180203,
-      "SAMS": 17,
-      "PRODQTY": 490,
-      "SAMPRD": 8330,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180210,
-      "SAMS": 13,
-      "PRODQTY": 2050,
-      "SAMPRD": 26650,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180209,
-      "SAMS": 50,
-      "PRODQTY": 1953,
-      "SAMPRD": 97650,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180205,
-      "SAMS": 17,
-      "PRODQTY": 5586,
-      "SAMPRD": 94962,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180206,
-      "SAMS": 14,
-      "PRODQTY": 1400,
-      "SAMPRD": 19600,
-      "NOFMAC": 80
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180205,
-      "SAMS": 18,
-      "PRODQTY": 1100,
-      "SAMPRD": 19800,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180206,
-      "SAMS": 16,
-      "PRODQTY": 8631,
-      "SAMPRD": 138096,
-      "NOFMAC": 400
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180207,
-      "SAMS": 17,
-      "PRODQTY": 650,
-      "SAMPRD": 11050,
-      "NOFMAC": 40
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180203,
-      "SAMS": 0.5,
-      "PRODQTY": 31324,
-      "SAMPRD": 15662,
-      "NOFMAC": 1600
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180201,
-      "SAMS": 0.5,
-      "PRODQTY": 11900,
-      "SAMPRD": 5950,
-      "NOFMAC": 640
-    },
-    {
-      "LOCATION": "IDEPL1",
-      "PRDDATE": 20180203,
-      "SAMS": 0.5,
-      "PRODQTY": 13300,
-      "SAMPRD": 6650,
-      "NOFMAC": 640
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180205,
-      "SAMS": 16,
-      "PRODQTY": 6177,
-      "SAMPRD": 98832,
-      "NOFMAC": 360
-    },
-    {
-      "LOCATION": "ID1   ",
-      "PRDDATE": 20180206,
-      "SAMS": 0.5,
-      "PRODQTY": 4968,
-      "SAMPRD": 2484,
-      "NOFMAC": 200
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 15960,
+      "TTLMAC": 600
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180201,
-      "SAMS": 16,
-      "PRODQTY": 131,
-      "SAMPRD": 2096,
-      "NOFMAC": 50
+      "PRDDATE": 20180604,
+      "TTLSAMS": 213681,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 52859,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 17500,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 24300,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 74234,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 87648,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 47550,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 81150,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 39200,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 94380,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 73240,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 78300,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 41588,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 87182,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 73075,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 99207,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 30100,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 55192,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 53300,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 97907,
+      "TTLMAC": 1200
     },
     {
       "LOCATION": "IDEPL4",
-      "PRDDATE": 20180207,
-      "SAMS": 0.5,
-      "PRODQTY": 25100,
-      "SAMPRD": 12550,
-      "NOFMAC": 1520
+      "PRDDATE": 20180621,
+      "TTLSAMS": 179151,
+      "TTLMAC": 2640
     },
     {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180209,
-      "SAMS": 18,
-      "PRODQTY": 5427,
-      "SAMPRD": 97686,
-      "NOFMAC": 360
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 50392,
+      "TTLMAC": 840
     },
     {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180208,
-      "SAMS": 9,
-      "PRODQTY": 3263,
-      "SAMPRD": 29367,
-      "NOFMAC": 120
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180208,
-      "SAMS": 16,
-      "PRODQTY": 6566,
-      "SAMPRD": 105056,
-      "NOFMAC": 440
-    },
-    {
-      "LOCATION": "IDEPL4",
-      "PRDDATE": 20180207,
-      "SAMS": 18,
-      "PRODQTY": 3834,
-      "SAMPRD": 69012,
-      "NOFMAC": 280
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 79100,
+      "TTLMAC": 600
     },
     {
       "LOCATION": "IDEPL3",
-      "PRDDATE": 20180207,
-      "SAMS": 16.02,
-      "PRODQTY": 4,
-      "SAMPRD": 64.08,
-      "NOFMAC": 50
+      "PRDDATE": 20180626,
+      "TTLSAMS": 81923,
+      "TTLMAC": 750
     },
     {
       "LOCATION": "IDEPL4",
-      "PRDDATE": 20180210,
-      "SAMS": 9,
-      "PRODQTY": 2749,
-      "SAMPRD": 24741,
-      "NOFMAC": 120
+      "PRDDATE": 20180626,
+      "TTLSAMS": 183228,
+      "TTLMAC": 1800
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 15750,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 66698,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 65000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 43977,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 44082,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 33386,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 21360,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 57030,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 90750,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 23798,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 14978,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 25400,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 43700,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 53950,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 27600,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 64502,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 35754,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 31884,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 92180,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 67000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 87800,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 26100,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 63050,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 9600,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 58333,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 63050,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 94720,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 34704,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 54989,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 73839,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 154237,
+      "TTLMAC": 2040
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180616,
+      "TTLSAMS": 35785,
+      "TTLMAC": 450
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 121635,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 83079,
+      "TTLMAC": 750
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 54458,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 16780,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 71267,
+      "TTLMAC": 900
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 212719,
+      "TTLMAC": 2520
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 20475,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 36100,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 74542,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 51420,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 53829,
+      "TTLMAC": 450
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 183051,
+      "TTLMAC": 2280
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 60525,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 59625,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 27000,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 50856,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 94380,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 44068,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 22200,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 52113,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 62017,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 56750,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 85742,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 43457,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 25361,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 98745,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 61352,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 34717,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 59629,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 96903,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 46980,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 18690,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 43641,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 46500,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 162143,
+      "TTLMAC": 2040
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 63050,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 39200,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 27866,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 75295,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 31600,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 43432,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 31600,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180616,
+      "TTLSAMS": 28249,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 53390,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 23596,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 58748,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 86064,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 56000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 48037,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 95255,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 20605,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 47314,
+      "TTLMAC": 315
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 70930,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 56422,
+      "TTLMAC": 750
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 175779,
+      "TTLMAC": 2160
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 78375,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 35587,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 59800,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 40640,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 17450,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 59434,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 21298,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 56927,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 69146,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 79840,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 52500,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 44135,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 19440,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 61605,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 58050,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 34697,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 66127,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 70250,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 77600,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 82064,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 20605,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 24300,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 35761,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 58825,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 168005,
+      "TTLMAC": 3600
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 74186,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 77801,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 24300,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 98772,
+      "TTLMAC": 750
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 71750,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 83410,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 37050,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 28416,
+      "TTLMAC": 780
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 72950,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 12107,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 83050,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 40050,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 38950,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 44076,
+      "TTLMAC": 1320
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 22600,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 12333,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 44439,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 29760,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 102481,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 77350,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 55250,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 66423,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 76880,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 49977,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 183147,
+      "TTLMAC": 2160
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 89037,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 60700,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 25840,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 52791,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 96850,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 18092,
+      "TTLMAC": 690
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 92000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 20268,
+      "TTLMAC": 810
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 76780,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 42447,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 62746,
+      "TTLMAC": 450
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 177487,
+      "TTLMAC": 1920
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 25900,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180609,
+      "TTLSAMS": 9996,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 26898,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 66560,
+      "TTLMAC": 1050
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 183774,
+      "TTLMAC": 2160
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 83050,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 37360,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 46650,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180616,
+      "TTLSAMS": 58939,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 74742,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 73837,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 74296,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 28431,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 20000,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 75683,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 69319,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180624,
+      "TTLSAMS": 52520,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 19312,
+      "TTLMAC": 300
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 74024,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 19250,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 73282,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 71582,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 59914,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 91216,
+      "TTLMAC": 525
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 97686,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 152720,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 162682,
+      "TTLMAC": 2760
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 242780,
+      "TTLMAC": 150
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 165785,
+      "TTLMAC": 2040
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 62075,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 74780,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 112254,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 22066,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180608,
+      "TTLSAMS": 28830,
+      "TTLMAC": 810
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 57372,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 40351,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 10535,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180611,
+      "TTLSAMS": 33300,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 54625,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 12650,
+      "TTLMAC": 360
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180613,
+      "TTLSAMS": 35050,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 71750,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 59835,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 123744,
+      "TTLMAC": 2280
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 56803,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 14150,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 17876,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 37520,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 123891,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 59944,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 51140,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180623,
+      "TTLSAMS": 53600,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 16671,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 83667,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 61162,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKBPT",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 65000,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180601,
+      "TTLSAMS": 39420,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 63220,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180602,
+      "TTLSAMS": 89554,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 16256,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180604,
+      "TTLSAMS": 97550,
+      "TTLMAC": 1230
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 184213,
+      "TTLMAC": 2280
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 50013,
+      "TTLMAC": 420
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 34625,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 32830,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 44300,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 43808,
+      "TTLMAC": 735
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 68284,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 99014,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 45768,
+      "TTLMAC": 630
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 30342,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 81032,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 34100,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 67291,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180625,
+      "TTLSAMS": 63250,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 46596,
+      "TTLMAC": 525
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180626,
+      "TTLSAMS": 75851,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "ID1   ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 50350,
+      "TTLMAC": 480
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 76370,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180628,
+      "TTLSAMS": 58270,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 61500,
+      "TTLMAC": 960
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 54920,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180605,
+      "TTLSAMS": 26034,
+      "TTLMAC": 540
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180606,
+      "TTLSAMS": 47758,
+      "TTLMAC": 930
+    },
+    {
+      "LOCATION": "NJKP1 ",
+      "PRDDATE": 20180607,
+      "TTLSAMS": 51812,
+      "TTLMAC": 900
+    },
+    {
+      "LOCATION": "IDEPL5",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 80400,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL6",
+      "PRDDATE": 20180612,
+      "TTLSAMS": 46154,
+      "TTLMAC": 1080
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 51057,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180614,
+      "TTLSAMS": 190525,
+      "TTLMAC": 1920
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180615,
+      "TTLSAMS": 8550,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "NJKP2 ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 63660,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKP3 ",
+      "PRDDATE": 20180618,
+      "TTLSAMS": 7600,
+      "TTLMAC": 240
+    },
+    {
+      "LOCATION": "IDEPL3",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 63805,
+      "TTLMAC": 750
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180619,
+      "TTLSAMS": 199130,
+      "TTLMAC": 1920
+    },
+    {
+      "LOCATION": "IDU9P2",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 67727,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180620,
+      "TTLSAMS": 20550,
+      "TTLMAC": 270
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180621,
+      "TTLSAMS": 100261,
+      "TTLMAC": 1200
+    },
+    {
+      "LOCATION": "IDEPL7",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 70644,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL8",
+      "PRDDATE": 20180622,
+      "TTLSAMS": 76165,
+      "TTLMAC": 600
+    },
+    {
+      "LOCATION": "IDEPL4",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 182586,
+      "TTLMAC": 2400
+    },
+    {
+      "LOCATION": "NJKU3 ",
+      "PRDDATE": 20180627,
+      "TTLSAMS": 22500,
+      "TTLMAC": 390
+    },
+    {
+      "LOCATION": "IDU9P1",
+      "PRDDATE": 20180629,
+      "TTLSAMS": 47067,
+      "TTLMAC": 840
+    },
+    {
+      "LOCATION": "IDEPL1",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 78865,
+      "TTLMAC": 720
+    },
+    {
+      "LOCATION": "IDU10 ",
+      "PRDDATE": 20180630,
+      "TTLSAMS": 85163,
+      "TTLMAC": 1080
     }
   ]
 }
