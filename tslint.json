@@ -10,8 +10,13 @@
       "node_modules/**/*.ts"
     ]
   },
+  "defaultSeverity": "warn",
   "rules": {
     "no-console": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-var-requires": false,
+    "no-bitwise": false,
+    "only-arrow-functions": false,
+    "object-literal-sort-keys": false
   }
 }
