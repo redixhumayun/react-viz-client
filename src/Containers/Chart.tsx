@@ -1,15 +1,19 @@
 /*tslint:disable:only-arrow-functions no-bitwise no-unused variable*/
 
 import axios from 'axios'
+import * as Hammer from 'hammerjs'
 import * as moment from 'moment'
 import * as React from 'react'
-import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Brush, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+
 import CustomizedLegend from '../Components/Charts/CustomizedLegend'
 import DatePickerComponent from '../Components/Charts/DatePicker'
 
 interface IChartState {
   data: object[],
-  locations: string[]
+  locations: string[],
+  fromDate: string,
+  toDate: string
 }
 
 interface IData {
@@ -20,6 +24,8 @@ interface IData {
 }
 
 class Chart extends React.Component<{}, IChartState> {
+  private hammerContainer: HTMLElement | null
+  private hammer: HammerManager
   constructor() {
     super({})
     this.state = {
@@ -42,36 +48,61 @@ class Chart extends React.Component<{}, IChartState> {
         "NJKU3",
         "IDU9P2",
         "IDU10"
-      ]
+      ],
+      fromDate: '',
+      toDate: ''
     }
+    this.hammerContainer = null
   }
 
   public render() {
     const { data, locations } = this.state
-    return Object.keys(data).length > 0 && (
-      <div className="chart" style={{
-        height: '100%',
-        position: 'absolute',
-        width: '100%',
-      }}>
-        <DatePickerComponent />
-        <ResponsiveContainer width="80%" height="80%">
-          <LineChart data={data}>
-            <XAxis dataKey={'PRDDATE'} />
-            <YAxis />
-            <Tooltip />
-            <Legend verticalAlign="bottom" height={36} content={<CustomizedLegend external={external} />} />
-            {
-              locations.map((loc) => {
-                return (
-                  <Line type='monotone' stroke={this.generateRandomColor()} key={`line_${loc}`} dataKey={`${loc}_TTLSAMS`} />
-                )
-              })
-            }
-          </LineChart>
-        </ResponsiveContainer>
+    return (
+      <div>
+        <DatePickerComponent onChange={this.dateChange} />
+        {
+          Object.keys(data).length > 0 && (
+            <div className="chart"
+            style={{
+              height: '100%',
+              position: 'absolute',
+              width: '100%',
+            }}
+            ref={(node: HTMLDivElement) => this.hammerContainer=node}>
+              <ResponsiveContainer width="80%" height="80%">
+                <LineChart data={data}>
+                  <XAxis dataKey={'PRDDATE'} />
+                  <YAxis />
+                  <Tooltip />
+                  <Brush height={30} tickFormatter={e => console.log(e)} />
+                  <Legend verticalAlign="bottom" content={<CustomizedLegend external={external} />} />
+                  {
+                    locations.map((loc) => {
+                      return (
+                        <Line type='monotone' stroke={this.generateRandomColor()} key={`line_${loc}`} dataKey={`${loc}_TTLSAMS`} />
+                      )
+                    })
+                  }
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          )
+        }
       </div>
     )
+  }
+
+  public componentDidUpdate(prevProps: {}, prevState: IChartState) {
+    if (this.hammerContainer !== null) {
+      this.hammer = new Hammer(this.hammerContainer, {
+        recognizers: [
+          [Hammer.Pan],
+          [Hammer.Tap]
+        ]
+      })
+      this.hammer.on('pan', (e) => console.log(e))
+      this.hammer.on('tap', (e) => console.log(e))
+    }
   }
 
   public async componentDidMount() {
@@ -81,6 +112,37 @@ class Chart extends React.Component<{}, IChartState> {
     this.setState({
       data: processedData
     })
+  }
+
+  private fetchData = async () => {
+    const { fromDate, toDate } = this.state
+    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate}/${toDate}`)
+    console.log(response)
+    const grouped = this.groupBy(response.data.recordset, (data: any) => data.PRDDATE)
+    const processedData = this.formatDate(this.processData(grouped))
+    this.setState({
+      data: processedData
+    })
+  }
+
+  private dateChange = (date: string, target: string) => {
+    if (target === 'from') {
+      this.setState({
+        fromDate: date
+      }, () => {
+        if (this.state.fromDate !== '' && this.state.toDate !== '') {
+          this.fetchData()
+        }
+      })
+    } else if (target === 'to') {
+      this.setState({
+        toDate: date
+      }, () => {
+        if (this.state.fromDate !== '' && this.state.toDate !== '') {
+          this.fetchData()
+        }
+      })
+    }
   }
 
   private groupBy = (list: any, keyGetter: any) => {

@@ -1,23 +1,47 @@
 import * as moment from 'moment'
 import * as React from 'react'
 import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-class DatePickerComponent extends React.Component {
+interface IDatePickerComponentProps {
+  onChange: (date: string, target: string) => void
+}
+
+interface IDatePickerComponentState {
+  startDate: object,
+  endDate: object
+}
+
+class DatePickerComponent extends React.Component<IDatePickerComponentProps, IDatePickerComponentState> {
+  public state = {
+    startDate: moment(),
+    endDate: moment()
+  }
+
   public render() {
     return (
       <div>
         <h2>From</h2>
-        <DatePicker selected={moment()}
-          onChange={this.handleChange} />
+        <DatePicker selected={this.state.startDate}
+          onChange={(d, e) => this.handleChange(d, e, 'from')} />
         <h2>To</h2>
-        <DatePicker selected={moment()}
-          onChange={this.handleChange} />
+        <DatePicker selected={this.state.endDate}
+          onChange={(d, e) => this.handleChange(d, e, 'to')} />
       </div>
     )
   }
 
-  private handleChange = (date: moment.Moment, event: React.SyntheticEvent<any>) => {
-    console.log(date, event)
+  private handleChange = (date: moment.Moment | null, event: React.SyntheticEvent<any> | undefined, target: string) => {
+    if (target === 'to') {
+      this.setState({
+        endDate: date!
+      })
+    } else if (target === 'from') {
+      this.setState({
+        startDate: date!
+      })
+    }
+    this.props.onChange(date!.format('YYYYMMDD'), target)
   }
 }
 

@@ -17,6 +17,7 @@
     "no-var-requires": false,
     "no-bitwise": false,
     "only-arrow-functions": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "ordered-imports": false
   }
 }
