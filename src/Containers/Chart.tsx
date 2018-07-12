@@ -1,17 +1,19 @@
-/*tslint:disable:only-arrow-functions no-bitwise no-unused variable*/
+/*tslint:disable:only-arrow-functions no-bitwise*/
 
 import axios from 'axios'
-import * as Hammer from 'hammerjs'
 import * as moment from 'moment'
 import * as React from 'react'
-import { Brush, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { VictoryChart, VictoryLine, createContainer, VictoryAxis, VictoryLegend } from 'victory'
 
-import CustomizedLegend from '../Components/Charts/CustomizedLegend'
 import DatePickerComponent from '../Components/Charts/DatePicker'
+import ChartToggle from '../Components/Charts/ChartToggle'
 
 interface IChartState {
-  data: object[],
+  data: object,
   locations: string[],
+  colors: string[],
+  legendData: object[],
+  checkedOptions: string[],
   fromDate: string,
   toDate: string
 }
@@ -24,8 +26,6 @@ interface IData {
 }
 
 class Chart extends React.Component<{}, IChartState> {
-  private hammerContainer: HTMLElement | null
-  private hammer: HammerManager
   constructor() {
     super({})
     this.state = {
@@ -44,82 +44,106 @@ class Chart extends React.Component<{}, IChartState> {
         "NJKP1",
         "NJKP2",
         "NJKP3",
-        "NJKBPT",
         "NJKU3",
-        "IDU9P2",
-        "IDU10"
+        "IDU9P2"
       ],
+      colors: [
+        'red',
+        'green',
+        'orange',
+        'blue',
+        'black',
+        'violet',
+        'indigo',
+        'maroon',
+        'cyan',
+        'darkgoldenrod',
+        'crimson',
+        'darksalmon',
+        'darkturquoise',
+        'fuchsia',
+        'ivory',
+        'lightblue',
+        'linen',
+        'mediumslateblue'
+      ],
+      legendData: [],
+      checkedOptions: [],
       fromDate: '',
       toDate: ''
     }
-    this.hammerContainer = null
   }
 
   public render() {
-    const { data, locations } = this.state
+    const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi')
+    const { data, locations, colors, legendData, checkedOptions } = this.state
     return (
       <div>
         <DatePickerComponent onChange={this.dateChange} />
         {
           Object.keys(data).length > 0 && (
-            <div className="chart"
-            style={{
-              height: '100%',
-              position: 'absolute',
-              width: '100%',
-            }}
-            ref={(node: HTMLDivElement) => this.hammerContainer=node}>
-              <ResponsiveContainer width="80%" height="80%">
-                <LineChart data={data}>
-                  <XAxis dataKey={'PRDDATE'} />
-                  <YAxis />
-                  <Tooltip />
-                  <Brush height={30} tickFormatter={e => console.log(e)} />
-                  <Legend verticalAlign="bottom" content={<CustomizedLegend external={external} />} />
-                  {
-                    locations.map((loc) => {
-                      return (
-                        <Line type='monotone' stroke={this.generateRandomColor()} key={`line_${loc}`} dataKey={`${loc}_TTLSAMS`} />
-                      )
-                    })
-                  }
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
+            <VictoryChart width={window.innerWidth + 200}
+            height={window.innerHeight - 200}
+            scale={{ x: 'time' }}
+            containerComponent={
+              <VictoryZoomVoronoiContainer labels={(d: any) => {
+                return `Date: ${d._x.format('MMMM DD')}, TTLSAMS: ${d._y}, LOCATION: ${d.LOCATION}`
+              }} />
+            }>
+              <VictoryAxis dependentAxis={true}
+                tickFormat={(t) => {
+                  return t
+                }} />
+              <VictoryAxis dependentAxis={false} />
+              {
+                checkedOptions.map((location: string, index: number) => (
+                  <VictoryLine
+                    key={`${location}_line`}
+                    data={data[location]}
+                    x="PRDDATE"
+                    y="TTLSAMS"
+                    animate={{
+                      duration: 2000,
+                      onLoad: { duration: 1000 }
+                    }}
+                    style={{
+                      data: { stroke: colors[index] }
+                    }} />
+                ))
+              }
+              <VictoryLegend y={20} title="Legend" centerTitle={true} orientation="horizontal"
+              data={legendData} />
+            </VictoryChart>
           )
         }
+        <ChartToggle locations={locations} onChange={this.updateCheckedOptions} />
       </div>
     )
   }
 
-  public componentDidUpdate(prevProps: {}, prevState: IChartState) {
-    if (this.hammerContainer !== null) {
-      this.hammer = new Hammer(this.hammerContainer, {
-        recognizers: [
-          [Hammer.Pan],
-          [Hammer.Tap]
-        ]
-      })
-      this.hammer.on('pan', (e) => console.log(e))
-      this.hammer.on('tap', (e) => console.log(e))
-    }
-  }
-
   public async componentDidMount() {
     const response = await axios.get('http://localhost:3004/recordsets')
-    const grouped = this.groupBy(response.data, (data: any) => data.PRDDATE)
-    const processedData = this.formatDate(this.processData(grouped))
+    const processedData = this.formatDate(this.processData(response.data))
+    const legendData = this.generateLegendData(processedData)
     this.setState({
-      data: processedData
+      data: processedData,
+      legendData
     })
   }
 
-  private fetchData = async () => {
+  private generateLegendData = (data: object) => {
+    const { locations, colors } = this.state
+    const legends: object[] = []
+    for(let i = 0; i < locations.length; i++) {
+      legends.push({ name: locations[i], symbol: { fill: colors[i] } })
+    }
+    return legends
+  }
+
+  private fetchData = async (): Promise<void> => {
     const { fromDate, toDate } = this.state
     const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate}/${toDate}`)
-    console.log(response)
-    const grouped = this.groupBy(response.data.recordset, (data: any) => data.PRDDATE)
-    const processedData = this.formatDate(this.processData(grouped))
+    const processedData = this.formatDate(this.processData(response.data.recordset))
     this.setState({
       data: processedData
     })
@@ -145,69 +169,49 @@ class Chart extends React.Component<{}, IChartState> {
     }
   }
 
-  private groupBy = (list: any, keyGetter: any) => {
-    const map = new Map()
-    list.sort((a: IData, b: IData) => {
-      if (a.PRDDATE < b.PRDDATE) {
-        return -1
-      } else if (a.PRDDATE > b.PRDDATE) {
-        return 1
-      }
-      return 0
-    }).forEach((item: any) => {
-      const key = keyGetter(item)
-      const collection = map.get(key)
-      if (!collection) {
-        map.set(key, [item])
-      } else {
-        collection.push(item)
-      }
-    })
-    return map
-  }
-
-  private processData = (data: Map<number, object[]>): Map<number, object[]> => {
+  private processData = (data: object[]): object => {
     const LOCATION = 'LOCATION'
-    data.forEach((value, key) => {
-      const updatedValue = value.map((obj: IData) => {
-        const primaryKey = obj[LOCATION].trim()
-        const newObj = {}
-        newObj[LOCATION] = primaryKey
-        Object.keys(obj).reduce((a, c) => {
-          if (c !== LOCATION) {
-            const newKey = `${primaryKey}_${c}`
-            newObj[newKey] = obj[c]
+    return data.reduce((acc, curr) => {
+      curr[LOCATION] = curr[LOCATION].trim()
+      if (!acc[curr[LOCATION]]) { acc[curr[LOCATION]] = [] }
+      acc[curr[LOCATION]].push(curr)
+      return acc
+    }, {})
+  }
+
+  private formatDate = (data: object): object => {
+    return Object.keys(data).reduce((acc, curr) => {
+      acc[curr] = data[curr].map((datum: IData) => {
+        const newDate: string[] = []
+        const currDate: string = datum.PRDDATE.toString()
+        for(let i = 0; i < currDate.length; i++) {
+          newDate.push(currDate[i])
+          if (i === 3 || i === 5) {
+            newDate.push('/')
           }
-          return a
-        }, {})
-        return newObj
-      }).reduce((acc: any, curr: IData) => {
-        return Object.assign({}, ...acc, curr)
-      }, {})
-      data.set(key, updatedValue)
-    })
-    return data
-  }
-
-  private formatDate = (data: Map<number, object[]>): object[] => {
-    const array: object[] = []
-    data.forEach((value, key) => {
-      const newDate: string[] = []
-      const keyString: string = key.toString()
-      for (let i = 0; i < keyString.length; i++) {
-        newDate.push(keyString[i])
-        if (i === 3 || i === 5) {
-          newDate.push('/')
         }
-      }
-      const momentDate = moment(new Date(newDate.join('')).getTime()).format('MMMM, DD')
-      array.push({ PRDDATE: momentDate, ...value })
-    })
-    return array
+        const momentDate = moment(new Date(newDate.join('')))
+        return { ...datum, PRDDATE: momentDate }
+      })
+      return acc
+    }, {})
   }
 
-  private generateRandomColor = () => {
-    return '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+  private updateCheckedOptions = (option: string, checked: boolean): void => {
+    if(checked) {
+      this.setState({
+        checkedOptions: [...this.state.checkedOptions, option]
+      })
+    } else {
+      const { checkedOptions } = this.state
+      const index = checkedOptions.findIndex((value: string) => value === option)
+      if (index !== -1) {
+        checkedOptions.splice(index, 1)
+        this.setState({
+          checkedOptions
+        })
+      }
+    }
   }
 }
 
