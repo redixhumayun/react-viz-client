@@ -1,6 +1,7 @@
 /*tslint:disable:only-arrow-functions no-bitwise*/
 
 import axios from 'axios'
+import { Row, Col } from 'antd'
 import * as moment from 'moment'
 import * as React from 'react'
 import { VictoryChart, VictoryLine, createContainer, VictoryAxis, VictoryLegend } from 'victory'
@@ -8,12 +9,16 @@ import { VictoryChart, VictoryLine, createContainer, VictoryAxis, VictoryLegend 
 import DatePickerComponent from '../Components/Charts/DatePicker'
 import ChartToggle from '../Components/Charts/ChartToggle'
 
+interface ILocations {
+  location: string,
+  color: string
+}
+
 interface IChartState {
   data: object,
-  locations: string[],
-  colors: string[],
+  locations: ILocations[],
   legendData: object[],
-  checkedOptions: string[],
+  checkedOptions: ILocations[],
   fromDate: string,
   toDate: string
 }
@@ -31,41 +36,21 @@ class Chart extends React.Component<{}, IChartState> {
     this.state = {
       data: [],
       locations: [
-        "ID1",
-        "IDEPL1",
-        "IDEPL3",
-        "IDEPL4",
-        "IDEPL5",
-        "IDEPL6",
-        "IDEPL7",
-        "IDEPL8",
-        "NJKBPT",
-        "IDU10",
-        "NJKP1",
-        "NJKP2",
-        "NJKP3",
-        "NJKU3",
-        "IDU9P2"
-      ],
-      colors: [
-        'red',
-        'green',
-        'orange',
-        'blue',
-        'black',
-        'violet',
-        'indigo',
-        'maroon',
-        'cyan',
-        'darkgoldenrod',
-        'crimson',
-        'darksalmon',
-        'darkturquoise',
-        'fuchsia',
-        'ivory',
-        'lightblue',
-        'linen',
-        'mediumslateblue'
+        { location: "ID1", color: "red" },
+        { location: "IDEPL1", color: "green" },
+        { location: "IDEPL3", color: "orange" },
+        { location: "IDEPL4", color: "blue" },
+        { location: "IDEPL5", color: "black" },
+        { location: "IDEPL6", color: "violet" },
+        { location: "IDEPL7", color: "indigo" },
+        { location: "IDEPL8", color: "maroon" },
+        { location: "NJKBPT", color: "cyan" },
+        { location: "IDU10", color: "darkgoldenrod" },
+        { location: "NJKP1", color: "crimson" },
+        { location: "NJKP2", color: "darksalmon" },
+        { location: "NJKP3", color: "darkturquoise" },
+        { location: "NJKU3", color: "fuschia" },
+        { location: "IDU9P2", color: "magenta" }
       ],
       legendData: [],
       checkedOptions: [],
@@ -76,47 +61,53 @@ class Chart extends React.Component<{}, IChartState> {
 
   public render() {
     const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi')
-    const { data, locations, colors, legendData, checkedOptions } = this.state
+    const { data, locations, legendData, checkedOptions } = this.state
     return (
       <div>
-        <DatePickerComponent onChange={this.dateChange} />
-        {
-          Object.keys(data).length > 0 && (
-            <VictoryChart width={window.innerWidth + 200}
-            height={window.innerHeight - 200}
-            scale={{ x: 'time' }}
-            containerComponent={
-              <VictoryZoomVoronoiContainer labels={(d: any) => {
-                return `Date: ${d._x.format('MMMM DD')}, TTLSAMS: ${d._y}, LOCATION: ${d.LOCATION}`
-              }} />
-            }>
-              <VictoryAxis dependentAxis={true}
-                tickFormat={(t) => {
-                  return t
-                }} />
-              <VictoryAxis dependentAxis={false} />
-              {
-                checkedOptions.map((location: string, index: number) => (
-                  <VictoryLine
-                    key={`${location}_line`}
-                    data={data[location]}
-                    x="PRDDATE"
-                    y="TTLSAMS"
-                    animate={{
-                      duration: 2000,
-                      onLoad: { duration: 1000 }
-                    }}
-                    style={{
-                      data: { stroke: colors[index] }
+        <Row>
+          <Col span={6}>Navigation Menu</Col>
+          <Col span={18}>
+            <DatePickerComponent onChange={this.dateChange} />
+            {
+              Object.keys(data).length > 0 && (
+                <VictoryChart width={window.innerWidth + 200}
+                  height={window.innerHeight}
+                  scale={{ x: 'time' }}
+                  containerComponent={
+                    <VictoryZoomVoronoiContainer labels={(d: any) => {
+                      return `Date: ${d._x.format('MMMM DD')}, TTLSAMS: ${d._y}, LOCATION: ${d.LOCATION}`
                     }} />
-                ))
-              }
-              <VictoryLegend y={20} title="Legend" centerTitle={true} orientation="horizontal"
-              data={legendData} />
-            </VictoryChart>
-          )
-        }
-        <ChartToggle locations={locations} onChange={this.updateCheckedOptions} />
+                  }>
+                  <VictoryAxis dependentAxis={true}
+                    tickFormat={(t) => {
+                      return t
+                    }} />
+                  <VictoryAxis dependentAxis={false} />
+                  {
+                    checkedOptions.map((obj: ILocations) => {
+                      return (
+                        <VictoryLine
+                          key={`${obj.location}_line`}
+                          data={data[obj.location]}
+                          x="PRDDATE"
+                          y="TTLSAMS"
+                          animate={{
+                            duration: 2000,
+                            onLoad: { duration: 1000 }
+                          }}
+                          style={{
+                            data: { stroke: obj.color }
+                          }} />
+                      )
+                    })
+                  }
+                  <VictoryLegend x={800} title="Legend" centerTitle={true} orientation="horizontal"
+                    data={legendData} itemsPerRow={4} />
+                </VictoryChart>
+              )
+            }
+            <ChartToggle locations={locations} onChange={this.updateCheckedOptions} /></Col>
+        </Row>
       </div>
     )
   }
@@ -124,18 +115,18 @@ class Chart extends React.Component<{}, IChartState> {
   public async componentDidMount() {
     const response = await axios.get('http://localhost:3004/recordsets')
     const processedData = this.formatDate(this.processData(response.data))
-    const legendData = this.generateLegendData(processedData)
+    const legendData = this.generateLegendData()
     this.setState({
       data: processedData,
       legendData
     })
   }
 
-  private generateLegendData = (data: object) => {
-    const { locations, colors } = this.state
+  private generateLegendData = (): object[] => {
+    const { locations } = this.state
     const legends: object[] = []
-    for(let i = 0; i < locations.length; i++) {
-      legends.push({ name: locations[i], symbol: { fill: colors[i] } })
+    for (const obj of locations) {
+      legends.push({ name: obj.location, symbol: { fill: obj.color } })
     }
     return legends
   }
@@ -149,7 +140,7 @@ class Chart extends React.Component<{}, IChartState> {
     })
   }
 
-  private dateChange = (date: string, target: string) => {
+  private dateChange = (date: string, target: string): void => {
     if (target === 'from') {
       this.setState({
         fromDate: date
@@ -184,7 +175,7 @@ class Chart extends React.Component<{}, IChartState> {
       acc[curr] = data[curr].map((datum: IData) => {
         const newDate: string[] = []
         const currDate: string = datum.PRDDATE.toString()
-        for(let i = 0; i < currDate.length; i++) {
+        for (let i = 0; i < currDate.length; i++) {
           newDate.push(currDate[i])
           if (i === 3 || i === 5) {
             newDate.push('/')
@@ -197,14 +188,14 @@ class Chart extends React.Component<{}, IChartState> {
     }, {})
   }
 
-  private updateCheckedOptions = (option: string, checked: boolean): void => {
-    if(checked) {
+  private updateCheckedOptions = (option: ILocations, checked: boolean): void => {
+    if (checked) {
       this.setState({
         checkedOptions: [...this.state.checkedOptions, option]
       })
     } else {
       const { checkedOptions } = this.state
-      const index = checkedOptions.findIndex((value: string) => value === option)
+      const index = checkedOptions.findIndex((value: ILocations) => value === option)
       if (index !== -1) {
         checkedOptions.splice(index, 1)
         this.setState({
