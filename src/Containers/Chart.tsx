@@ -8,6 +8,7 @@ import { VictoryChart, VictoryLine, createContainer, VictoryAxis, VictoryLegend 
 
 import DatePickerComponent from '../Components/Charts/DatePicker'
 import ChartToggle from '../Components/Charts/ChartToggle'
+import Sidebar from '../Components/Charts/Sidebar'
 
 interface ILocations {
   location: string,
@@ -63,11 +64,21 @@ class Chart extends React.Component<{}, IChartState> {
     const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi')
     const { data, locations, legendData, checkedOptions } = this.state
     return (
-      <div>
+      <div style={{
+        marginTop: 50
+      }}>
         <Row>
-          <Col span={6}>Navigation Menu</Col>
-          <Col span={18}>
-            <DatePickerComponent onChange={this.dateChange} />
+          <Col span={4} />
+          <Col span={20}>
+            <Row>
+              <Col span={6} />
+              <Col span={6}>
+                <Sidebar />
+              </Col>
+              <Col span={6}>
+                <DatePickerComponent onChange={this.dateChange} />
+              </Col>
+            </Row>
             {
               Object.keys(data).length > 0 && (
                 <VictoryChart width={window.innerWidth + 200}
@@ -101,7 +112,7 @@ class Chart extends React.Component<{}, IChartState> {
                       )
                     })
                   }
-                  <VictoryLegend x={800} title="Legend" centerTitle={true} orientation="horizontal"
+                  <VictoryLegend x={window.innerWidth - 200} title="Legend" centerTitle={true} orientation="horizontal"
                     data={legendData} itemsPerRow={4} />
                 </VictoryChart>
               )
