@@ -1,10 +1,10 @@
 import * as moment from 'moment'
 import * as React from 'react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { DatePicker } from 'antd'
+import { RangePickerValue } from 'antd/lib/date-picker/interface';
 
 interface IDatePickerComponentProps {
-  onChange: (date: string, target: string) => void
+  onChange: (fromDate: moment.Moment | undefined, toDate: moment.Moment | undefined) => void
 }
 
 interface IDatePickerComponentState {
@@ -19,45 +19,16 @@ class DatePickerComponent extends React.Component<IDatePickerComponentProps, IDa
   }
 
   public render() {
+    const { RangePicker } = DatePicker
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-      }}>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          margin: 'auto'
-        }}>
-          <h2>From</h2>
-          <DatePicker selected={this.state.startDate}
-            onChange={(d, e) => this.handleChange(d, e, 'from')} />
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          margin: 'auto'
-        }}>
-          <h2>To</h2>
-          <DatePicker selected={this.state.endDate}
-            onChange={(d, e) => this.handleChange(d, e, 'to')} />
-        </div>
-      </div>
+      <RangePicker onChange={this.handleChange} />
     )
   }
 
-  private handleChange = (date: moment.Moment | null, event: React.SyntheticEvent<any> | undefined, target: string) => {
-    if (target === 'to') {
-      this.setState({
-        endDate: date!
-      })
-    } else if (target === 'from') {
-      this.setState({
-        startDate: date!
-      })
+  private handleChange = (dates: RangePickerValue, dateStrings: [string, string]): void => {
+    if (dates[0] !== undefined && dates[1] !== undefined) {
+      this.props.onChange(dates[0], dates[1])
     }
-    this.props.onChange(date!.format('YYYYMMDD'), target)
   }
 }
 

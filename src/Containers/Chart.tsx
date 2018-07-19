@@ -19,8 +19,8 @@ interface IChartState {
   locations: ILocations[],
   legendData: object[],
   checkedOptions: ILocations[],
-  fromDate: string,
-  toDate: string
+  fromDate: moment.Moment,
+  toDate: moment.Moment
 }
 
 interface IData {
@@ -54,8 +54,8 @@ class Chart extends React.Component<{}, IChartState> {
       ],
       legendData: [],
       checkedOptions: [],
-      fromDate: '',
-      toDate: ''
+      fromDate: moment(),
+      toDate: moment()
     }
   }
 
@@ -75,7 +75,7 @@ class Chart extends React.Component<{}, IChartState> {
                   scale={{ x: 'time' }}
                   containerComponent={
                     <VictoryZoomVoronoiContainer labels={(d: any) => {
-                      return `Date: ${d._x.format('MMMM DD')}, TTLSAMS: ${d._y}, LOCATION: ${d.LOCATION}`
+                      return `Date: ${d._x.format('MMMM DD')}, SEW_EFF: ${d._y}, LOCATION: ${d.LOCATION}`
                     }} />
                   }>
                   <VictoryAxis dependentAxis={true}
@@ -90,7 +90,7 @@ class Chart extends React.Component<{}, IChartState> {
                           key={`${obj.location}_line`}
                           data={data[obj.location]}
                           x="PRDDATE"
-                          y="TTLSAMS"
+                          y="SEW_EFF"
                           animate={{
                             duration: 2000,
                             onLoad: { duration: 1000 }
@@ -140,24 +140,13 @@ class Chart extends React.Component<{}, IChartState> {
     })
   }
 
-  private dateChange = (date: string, target: string): void => {
-    if (target === 'from') {
-      this.setState({
-        fromDate: date
-      }, () => {
-        if (this.state.fromDate !== '' && this.state.toDate !== '') {
-          this.fetchData()
-        }
-      })
-    } else if (target === 'to') {
-      this.setState({
-        toDate: date
-      }, () => {
-        if (this.state.fromDate !== '' && this.state.toDate !== '') {
-          this.fetchData()
-        }
-      })
-    }
+  private dateChange = (fromDate: moment.Moment, toDate: moment.Moment): void => {
+    this.setState({
+      fromDate,
+      toDate
+    }, () => {
+      this.fetchData()
+    })
   }
 
   private processData = (data: object[]): object => {
