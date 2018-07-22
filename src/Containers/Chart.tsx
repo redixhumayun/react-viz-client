@@ -24,13 +24,6 @@ interface IChartState {
   toDate: moment.Moment
 }
 
-interface IData {
-  LOCATION: string,
-  PRDDATE: number,
-  TTLSAMS: number,
-  TTLMAC: number
-}
-
 class Chart extends React.Component<{}, IChartState> {
   constructor() {
     super({})
@@ -86,7 +79,7 @@ class Chart extends React.Component<{}, IChartState> {
                   scale={{ x: 'time' }}
                   containerComponent={
                     <VictoryZoomVoronoiContainer labels={(d: any) => {
-                      return `Date: ${d._x.format('MMMM DD')}, SEW_EFF: ${d._y}, LOCATION: ${d.LOCATION}`
+                      return `Date: ${moment(d._x).format('MMMM DD')}, SEW_EFF: ${d._y}, LOCATION: ${d.LOCATION}`
                     }} />
                   }>
                   <VictoryAxis dependentAxis={true}
@@ -124,11 +117,8 @@ class Chart extends React.Component<{}, IChartState> {
   }
 
   public async componentDidMount() {
-    const response = await axios.get('http://localhost:3004/recordsets')
-    const processedData = this.formatDate(this.processData(response.data))
     const legendData = this.generateLegendData()
     this.setState({
-      data: processedData,
       legendData
     })
   }
@@ -144,11 +134,22 @@ class Chart extends React.Component<{}, IChartState> {
 
   private fetchData = async (): Promise<void> => {
     const { fromDate, toDate } = this.state
-    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate}/${toDate}`)
-    const processedData = this.formatDate(this.processData(response.data.recordset))
+    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate.format('YYYYMMDD')}/${toDate.format('YYYYMMDD')}`)
+    console.log(response)
     this.setState({
-      data: processedData
+      data: this.formatDate(response.data)
     })
+  }
+
+  private formatDate = (data: object): object => {
+    return Object.keys(data).reduce((acc, curr) => {
+      acc[curr] = data[curr].map((datum: any) => {
+        const currDate: string = datum.PRDDATE.toString()
+        const momentDate = moment(currDate)
+        return { ...datum, PRDDATE: momentDate }
+      })
+      return acc
+    }, {})
   }
 
   private dateChange = (fromDate: moment.Moment, toDate: moment.Moment): void => {
@@ -158,34 +159,6 @@ class Chart extends React.Component<{}, IChartState> {
     }, () => {
       this.fetchData()
     })
-  }
-
-  private processData = (data: object[]): object => {
-    const LOCATION = 'LOCATION'
-    return data.reduce((acc, curr) => {
-      curr[LOCATION] = curr[LOCATION].trim()
-      if (!acc[curr[LOCATION]]) { acc[curr[LOCATION]] = [] }
-      acc[curr[LOCATION]].push(curr)
-      return acc
-    }, {})
-  }
-
-  private formatDate = (data: object): object => {
-    return Object.keys(data).reduce((acc, curr) => {
-      acc[curr] = data[curr].map((datum: IData) => {
-        const newDate: string[] = []
-        const currDate: string = datum.PRDDATE.toString()
-        for (let i = 0; i < currDate.length; i++) {
-          newDate.push(currDate[i])
-          if (i === 3 || i === 5) {
-            newDate.push('/')
-          }
-        }
-        const momentDate = moment(new Date(newDate.join('')))
-        return { ...datum, PRDDATE: momentDate }
-      })
-      return acc
-    }, {})
   }
 
   private updateCheckedOptions = (option: ILocations, checked: boolean): void => {
