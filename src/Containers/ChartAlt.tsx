@@ -1,8 +1,19 @@
 import * as React from 'react'
-import { VictoryChart, VictoryGroup, VictoryStack, VictoryBar, VictoryTooltip, VictoryLabel } from 'victory'
+import { VictoryChart, VictoryGroup, VictoryStack, VictoryBar, VictoryTooltip } from 'victory'
 import * as moment from 'moment'
 
 // import VictoryLabelCustom from '../Components/Charts/VictoryLabelCustom'
+
+interface IData {
+  BATCH: string,
+  LOCATION: string,
+  NOFMAC: number,
+  PRDDATE: number,
+  PRDQTY: number,
+  PRODUCT: string,
+  SAMPRD: number,
+  SAMS: number
+}
 
 class ChartAlt extends React.Component {
 
@@ -17,7 +28,8 @@ class ChartAlt extends React.Component {
           "SAMS": 19,
           "PRODQTY": 1800,
           "SAMPRD": 12000,
-          "NOFMAC": 120
+          "NOFMAC": 120,
+          "label": "BAT1, IDEPL1"
         },
         {
           "LOCATION": "IDEPL1",
@@ -27,7 +39,8 @@ class ChartAlt extends React.Component {
           "SAMS": 19,
           "PRODQTY": 1800,
           "SAMPRD": 12000,
-          "NOFMAC": 120
+          "NOFMAC": 120,
+          "label": "BAT2, IDEPL1"
         },
         {
           "LOCATION": "IDEPL1",
@@ -37,7 +50,8 @@ class ChartAlt extends React.Component {
           "SAMS": 15,
           "PRODQTY": 1650,
           "SAMPRD": 8800,
-          "NOFMAC": 120
+          "NOFMAC": 120,
+          "label": "BAT3, IDEPL1"
         },
         {
           "LOCATION": "IDEPL3",
@@ -72,40 +86,32 @@ class ChartAlt extends React.Component {
       ]
     }
 
-    const processedData = this.groupBy(dummyData['20180601'], 'LOCATION')
+    const processedData: object = this.groupBy(dummyData['20180601'], 'LOCATION')
     console.log(processedData)
-    const getBarData = () => {
-      return [1, 2, 3, 4, 5].map(() => {
-        return [
-          { x: 1, y: 1 },
-          { x: 2, y: 2 },
-          { x: 3, y: 3 }
-        ];
-      });
-    };
-    console.log(getBarData())
 
     return (
-      <div>
+      <div style={{
+        marginTop: 20
+      }}>
         <VictoryChart domainPadding={{ x: 50 }} width={400} height={400}>
           <VictoryGroup offset={20} style={{ data: { width: 15 } }}>
             <VictoryStack colorScale={"red"}>
               {
-                processedData[`IDEPL1`].map((data: any, index: number) => {
-                  return (
-                    <VictoryBar data={[data]}
-                    key={index}
-                    labels={(d) => d.SAMS}
-                    labelComponent={<VictoryTooltip labelComponent={<VictoryLabel
-                      text={(datum: any) => `BATCH: ${datum.BATCH}`} />} />}
-                    x={(d) => moment(d.PRDDATE.toString()).format('MM, DD')}
-                    y="SAMS" />
-                  )
+                Object.keys(processedData).map(locationKey => {
+                  return processedData[locationKey].map((data: IData, index: number) => {
+                    return (
+                      <VictoryBar data={[data]}
+                      key={index}
+                      labels={(d) => d.SAMS}
+                      labelComponent={<VictoryTooltip
+                        height={40}
+                        text={(d: any) => `BATCH: ${d.BATCH},\n FACTORY: ${d.LOCATION}`} />}
+                      x={(d) => moment(d.PRDDATE.toString()).format('MM, DD')}
+                      y="SAMS"  />
+                    )
+                  })
                 })
               }
-              {/* <VictoryBar data={[{ x: moment('20180601').format('MM, DD'), y: 19 }, { x: moment('20180602').format('MM, DD'), y: 12 }, { x: moment('20180603').format('MM, DD'), y: 18 }]} />
-              <VictoryBar data={[{ x: moment('20180601').format('MM, DD'), y: 19 }, { x: moment('20180602').format('MM, DD'), y: 25 }, { x: moment('20180603').format('MM, DD'), y: 20 }]} />
-              <VictoryBar data={[{ x: moment('20180601').format('MM, DD'), y: 15 }, { x: moment('20180602').format('MM, DD'), y: 20 }, { x: moment('20180603').format('MM, DD'), y: 20 }]} /> */}
             </VictoryStack>
             <VictoryStack colorScale={"green"}>
               <VictoryBar data={[{ x: moment('20180601').format('MM, DD'), y: 15 }, { x: moment('20180602').format('MM, DD'), y: 11 }, { x: moment('20180603').format('MM, DD'), y: 14 }]} />

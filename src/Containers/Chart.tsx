@@ -72,44 +72,40 @@ class Chart extends React.Component<{}, IChartState> {
                 <DatePickerComponent onChange={this.dateChange} />
               </Col>
             </Row>
-            {
-              Object.keys(data).length > 0 && (
-                <VictoryChart width={window.innerWidth + 200}
-                  height={window.innerHeight}
-                  scale={{ x: 'time' }}
-                  containerComponent={
-                    <VictoryZoomVoronoiContainer labels={(d: any) => {
-                      return `Date: ${moment(d._x).format('MMMM DD')}, SEW_EFF: ${d._y}, LOCATION: ${d.LOCATION}`
-                    }} />
-                  }>
-                  <VictoryAxis dependentAxis={true}
-                    tickFormat={(t) => {
-                      return t
-                    }} />
-                  <VictoryAxis dependentAxis={false} />
-                  {
-                    checkedOptions.map((obj: ILocations) => {
-                      return (
-                        <VictoryLine
-                          key={`${obj.location}_line`}
-                          data={data[obj.location]}
-                          x="PRDDATE"
-                          y="SEW_EFF"
-                          animate={{
-                            duration: 2000,
-                            onLoad: { duration: 1000 }
-                          }}
-                          style={{
-                            data: { stroke: obj.color }
-                          }} />
-                      )
-                    })
-                  }
-                  <VictoryLegend x={window.innerWidth - 200} title="Legend" centerTitle={true} orientation="horizontal"
-                    data={legendData} itemsPerRow={4} />
-                </VictoryChart>
-              )
-            }
+            <VictoryChart width={window.innerWidth + 200}
+              height={screen.height - 100}
+              scale={{ x: 'time' }}
+              containerComponent={
+                <VictoryZoomVoronoiContainer labels={(d: any) => {
+                  return `Date: ${moment(d._x).format('MMMM DD')}, SEW_EFF: ${d._y}, LOCATION: ${d.LOCATION}`
+                }} />
+              }>
+              <VictoryAxis dependentAxis={true}
+                tickFormat={(t) => {
+                  return t
+                }} />
+              <VictoryAxis dependentAxis={false} />
+              {
+                checkedOptions.map((obj: ILocations) => {
+                  return (
+                    <VictoryLine
+                      key={`${obj.location}_line`}
+                      data={data[obj.location]}
+                      x="PRDDATE"
+                      y="SEW_EFF"
+                      animate={{
+                        duration: 2000,
+                        onLoad: { duration: 1000 }
+                      }}
+                      style={{
+                        data: { stroke: obj.color }
+                      }} />
+                  )
+                })
+              }
+              <VictoryLegend x={window.innerWidth - 200} title="Legend" centerTitle={true} orientation="horizontal"
+                data={legendData} itemsPerRow={4} />
+            </VictoryChart>
             <ChartToggle locations={locations} onChange={this.updateCheckedOptions} /></Col>
         </Row>
       </div>
@@ -134,8 +130,8 @@ class Chart extends React.Component<{}, IChartState> {
 
   private fetchData = async (): Promise<void> => {
     const { fromDate, toDate } = this.state
-    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate.format('YYYYMMDD')}/${toDate.format('YYYYMMDD')}`)
-    console.log(response)
+    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/`+
+                    `${fromDate.format('YYYYMMDD')}/${toDate.format('YYYYMMDD')}`)
     this.setState({
       data: this.formatDate(response.data)
     })

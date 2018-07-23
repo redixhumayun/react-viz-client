@@ -4,9 +4,9 @@ class VictoryLabelCustom extends React.Component<any, any> {
   public render() {
     console.log(this.props)
     return (
-      <text>
+      <p>
         {this.props.datum.BATCH}
-      </text>
+      </p>
     )
   }
 }
