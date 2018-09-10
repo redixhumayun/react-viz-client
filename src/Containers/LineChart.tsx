@@ -24,7 +24,7 @@ interface IChartState {
   toDate: moment.Moment
 }
 
-class Chart extends React.Component<{}, IChartState> {
+class LineChart extends React.Component<{}, IChartState> {
   constructor() {
     super({})
     this.state = {
@@ -175,4 +175,4 @@ class Chart extends React.Component<{}, IChartState> {
   }
 }
 
-export default Chart
+export default LineChart
