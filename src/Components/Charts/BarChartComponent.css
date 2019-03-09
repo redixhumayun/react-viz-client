@@ -1,0 +1,8 @@
+.chart {
+  display: flex;
+}
+
+.chart rect {
+  fill: steelblue
+}
+
