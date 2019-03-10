@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as moment from 'moment'
-import { scaleLinear, scaleBand, select } from 'd3'
+import { axisBottom, axisLeft, scaleLinear, scaleBand, select } from 'd3'
 
 import DatePickerComponent from './DatePicker'
 import './BarChartComponent.css'
@@ -15,12 +15,15 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
   public render() {
     this.drawChart()
     return (
-      <div style={{
-        marginTop: 20,
-        marginRight: 50
-      }}>
+      <div>
         <DatePickerComponent onChange={this.props.dateChange} />
-        <svg className="chart"></svg>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <svg className="chart"></svg>
+        </div>
       </div>
     )
   }
@@ -45,6 +48,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
     const height = 480
     const width = 960
 
+    const margin: { top: number, right: number, bottom: number, left: number } = { top: 30, right: 30, bottom: 30, left: 30 }
 
     const x = scaleBand()
       .domain(data.map(d => d['PRDDATE']))
@@ -59,9 +63,17 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .rangeRound([0, x.bandwidth()])
       .padding(0.5)
 
+    const xAxis = (g: any) => g.attr('transform', `translate(0, ${height})`)
+                        .call(axisBottom(x)
+                              .tickFormat(d => moment(d).format('MMMM DD, YYYY'))
+                          )
+
+    const yAxis = (g: any) => g.attr('transform', `translate(${margin.left}, 0)`)
+                          .call(axisLeft(y))
+
     const chart = select('.chart')
-      .attr('width', width)
-      .attr('height', height)
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
 
     chart.selectAll('g')
           .data(data)
@@ -74,6 +86,12 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
             .attr('y', d => y(d.value))
             .attr('width', x1.bandwidth())
             .attr('height', d => height - y(d.value))
+
+    chart.append('g')
+          .call(xAxis)
+
+    chart.append('g')
+          .call(yAxis)
   }
 }
 

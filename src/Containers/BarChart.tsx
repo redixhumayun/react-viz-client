@@ -38,7 +38,6 @@ class BarChart extends React.Component<{}, IBarChartState> {
   private fetchData = async (): Promise<void> => {
     const { fromDate, toDate } = this.state
     const response = await axios.get(`${process.env.REACT_APP_BASEURL}/${fromDate.format('YYYYMMDD')}/${toDate.format('YYYYMMDD')}`)
-    console.log(response.data)
     this.setState({
       data: response.data
     })
