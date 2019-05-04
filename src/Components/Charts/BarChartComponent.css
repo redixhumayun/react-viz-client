@@ -18,3 +18,8 @@ div.tooltip {
   border-radius: 4px;
   pointer-events: none;
 }
+
+.back-arrow {
+  align-self: flex-start;
+  margin-left: 30px;
+}

@@ -8,6 +8,7 @@ import './BarChartComponent.css'
 interface IBarProps {
   data: object[],
   fetchSingleFactoryData: (date: string | Date, location: string) => Promise<void>
+  renderPrevChart: () => void
 }
 
 interface IDataShape {
@@ -22,8 +23,11 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexDirection: 'column',
+        padding: '30px'
       }}>
+        <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}><svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg></div>
         <svg className="chart" />
       </div>
     )
@@ -37,7 +41,19 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
   }
 
   public componentDidUpdate() {
-    console.log("Component did update")
+    //  Remove all previous SVG graphics before drawing new ones
+    select('.chart')
+      .selectAll('g')
+      .remove()
+
+    select('.chart')
+      .selectAll('rect')
+      .remove()
+
+    select('.chart')
+      .select('.tooltip')
+      .remove()
+
     this.drawChart()
   }
 
@@ -65,24 +81,18 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
 
     //  Define the scales and the axes required
     const x = scaleBand()
-      .domain(data.map((d: IDataShape) => d.PRDDATE))
-      .rangeRound([0, width])
+      .domain([...keys])
+      .rangeRound([margin.left, width - margin.right])
+      .padding(0.5)
 
     const y = scaleLinear()
       .domain([0, 100])
-      .range([height, 0])
+      .range([height - margin.bottom, margin.top])
 
-    const x1 = scaleBand()
-      .domain([...keys])
-      .rangeRound([0, x.bandwidth()])
-      .padding(0.5)
+    const xAxis = (g: any) => g.attr('transform', `translate(0, ${height - margin.bottom})`)
+      .call(axisBottom(x))
 
-    const xAxis = (g: any) => g.attr('transform', `translate(${margin.left - 10}, ${height + margin.top})`)
-      .call(axisBottom(x)
-        .tickFormat(d => moment(d).format('MMMM DD, YYYY'))
-      )
-
-    const yAxis = (g: any) => g.attr('transform', `translate(${margin.left - 5}, ${margin.top})`)
+    const yAxis = (g: any) => g.attr('transform', `translate(${margin.left}, 0)`)
       .call(axisLeft(y))
 
     //  Define the tooltip
@@ -93,8 +103,8 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
 
     //  Select the SVG element and give dimensions
     const chart = select('.chart')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
+      .attr('width', width)
+      .attr('height', height)
 
 
     //  Draw the actual chart with the required data
@@ -102,14 +112,13 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .selectAll('g')
       .data(data)
       .join('g')
-      .attr('transform', function (d: IDataShape) { return `translate(${x(d.PRDDATE)! + margin.left - 10}, ${margin.top})` })
       .selectAll('rect')
       .data((d: IDataShape) => keys.map(key => ({ key, value: d[key], date: d.PRDDATE })))
       .join('rect')
-      .attr('x', d => x1(d.key) || null)
+      .attr('x', d => x(d.key) || null)
       .attr('y', d => y(d.value))
-      .attr('width', x1.bandwidth())
-      .attr('height', d => height - y(d.value))
+      .attr('width', x.bandwidth())
+      .attr('height', d => height - y(d.value) - margin.bottom)
       .on('mouseover', d => {
         tooltip.transition()
           .duration(250)
@@ -126,6 +135,10 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
           .style('opacity', 0)
       })
       .on('click', (d) => {
+        tooltip.transition()
+          .duration(250)
+          .ease(easeLinear)
+          .style('opacity', 0)
         this.props.fetchSingleFactoryData(d.date, d.key)
       })
 

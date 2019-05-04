@@ -1,14 +1,17 @@
 import * as React from 'react';
+import { Provider } from 'react-redux'
 import './App.css';
 
-// import LineChart from './Containers/Chart';
-import BarChart from './Containers/BarChart'
+import ChartContainer from './Containers/ChartContainer'
+import store from './store/store'
 
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        <BarChart />
+        <Provider store={store}>
+          <ChartContainer />
+        </Provider>
       </div>
     );
   }

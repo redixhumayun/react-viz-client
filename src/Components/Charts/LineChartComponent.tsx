@@ -27,6 +27,12 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     )
   }
 
+  public componentDidMount() {
+    if (this.props.data.length > 0) {
+      this.drawChart()
+    }
+  }
+
   public componentDidUpdate() {
     if (this.props.data.length > 0) {
       this.drawChart()
@@ -50,7 +56,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
 
   private drawChart = (): void => {
     const { data } = this.props
-    console.log(data)
+
     //  Formate date from data for use in bisector function
     const dateFormattedData: any = data.reduce((acc: IDataShape[], currObj) => {
       const updatedObj = Object.assign(
