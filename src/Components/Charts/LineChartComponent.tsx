@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as moment from 'moment'
-import { axisBottom, axisLeft, scaleLinear, scaleTime, select, line, mouse, bisector, ContainerElement } from 'd3'
+import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line, mouse, bisector, ContainerElement, curveMonotoneX } from 'd3'
 
 import './LineChartComponent.css'
 
@@ -87,7 +87,9 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
       .range([height - margin.bottom, margin.top])
 
     const xAxis = (g: any) => g.attr('transform', `translate(0, ${height - margin.bottom})`)
-      .call(axisBottom(xScale))
+      .call(axisBottom(xScale)
+            .tickFormat(timeFormat('%b %d'))
+      )
 
     const yAxis = (g: any) => g.attr('transform', `translate(${margin.left}, 0)`)
       .call(axisLeft(yScale))
@@ -158,6 +160,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
       .y((d: IDataShape) => {
         return yScale(d.EFF)
       })
+      .curve(curveMonotoneX)
 
     //  Add the svg line onto the chart
     chart.append('path')
@@ -171,7 +174,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     chart.selectAll('dot')
           .data(data)
           .join('circle')
-          .attr('r', 5)
+          .attr('r', 2.5)
           .attr('cx', (d) => xScale(moment(d.PRDDATE).toDate()))
           .attr('cy', (d) => yScale(d.EFF))
           .on('click', (e: IDataShape) => {
@@ -184,12 +187,17 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
       const coordinates = mouse(this)
       const { PRDDATE, EFF } = bisectorFn(coordinates[0])
 
-      tooltip.attr('transform', `translate(${xScale(PRDDATE)}, ${yScale(EFF)})`)
+      //  only transform the tooltip if both PRDDATE and EFF are not null
+      if (PRDDATE && EFF) {
+        tooltip.attr('transform', `translate(${xScale(PRDDATE)}, ${yScale(EFF)})`)
         .call(callout, `${EFF}% \n ${PRDDATE.toDateString()}`)
-      })
-      .on('mouseleave', function() {
-        tooltip.call(callout, null)
-      })
+      }
+    })
+
+    //  Add a mouseleave event to remove the tooltip
+    chart.on('mouseleave', function() {
+      tooltip.call(callout, null)
+    })
 
 
     //  Append the axes on to the chart

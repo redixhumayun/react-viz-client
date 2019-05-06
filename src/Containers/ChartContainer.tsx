@@ -2,7 +2,6 @@ import axios from 'axios'
 import * as React from 'react'
 import * as moment from 'moment'
 
-import DatePickerComponent from '../Components/Charts/DatePicker'
 import BarChartComponent from '../Components/Charts/BarChartComponent'
 import LineChartComponent from '../Components/Charts/LineChartComponent'
 
@@ -29,7 +28,7 @@ interface IDataShape {
 }
 
 class ChartContainer extends React.Component<{}, IBarChartState> {
-  constructor(props: any) {
+  constructor(props: object) {
     super(props)
     this.state = {
       prevState: [],
@@ -53,12 +52,17 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
   }
 
   public render() {
-    return (
-      <div>
-        <DatePickerComponent onChange={this.fetchData} />
-        {this.getComponentToRender()}
-      </div>
-    )
+    return this.getComponentToRender()
+  }
+
+  public async componentDidMount() {
+    const toDate = moment().format('YYYYMMDD')
+    const fromDate = moment().subtract(1, 'months').format('YYYYMMDD')
+    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/averageEff/${fromDate}/${toDate}`)
+    const formattedData = this.filterDataForNullValues(this.orderByDate(this.formatDate(response.data)))
+    this.setState({
+      data: formattedData
+    })
   }
 
   private formatDate = (data: IDataShape[]): IDataShape[] => {
@@ -87,14 +91,9 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
     })
   }
 
-  /**
-   * Fetch the average eff data averaged for all factories ranging from fromDate to toDate
-   */
-  private fetchData = async (fromDate: moment.Moment, toDate: moment.Moment): Promise<void> => {
-    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/averageEff/${fromDate.format('YYYYMMDD')}/${toDate.format('YYYYMMDD')}`)
-    const formattedData = this.orderByDate(this.formatDate(response.data))
-    this.setState({
-      data: formattedData
+  private filterDataForNullValues = (data: IDataShape[]): IDataShape[] => {
+    return data.filter((datum: IDataShape): boolean => {
+      return datum.EFF !== null
     })
   }
 
