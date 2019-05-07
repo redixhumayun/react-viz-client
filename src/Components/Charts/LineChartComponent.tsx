@@ -27,9 +27,10 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     )
   }
 
+  //  This method is so that the chart area updates when a new date range is selected
   public componentDidUpdate() {
-    if (this.props.data.length > 0) {
-      select('.chart')
+    //  Remove all previous SVG elements before rendering new chart
+    select('.chart')
         .selectAll('g')
         .remove()
 
@@ -41,6 +42,14 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
         .selectAll('circle')
         .remove()
 
+    if (this.props.data.length > 0) {
+      this.drawChart()
+    }
+  }
+
+  //  This method is so that the chart area will re-render when the back button is hit from another chart
+  public componentDidMount() {
+    if (this.props.data.length > 0) {
       this.drawChart()
     }
   }
