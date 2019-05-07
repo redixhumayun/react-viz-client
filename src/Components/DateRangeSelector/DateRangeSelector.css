@@ -1,0 +1,18 @@
+.date-range-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.date-range-container > button {
+  border: none;
+  background-color: blue;
+  color: red;
+  padding: 15px;
+  border-radius: 5px;
+  margin-left: 2px;
+}
+
+.date-range-container > button.active-btn {
+  background-color: green;
+}

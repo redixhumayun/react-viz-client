@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as moment from 'moment'
-import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line, mouse, bisector, ContainerElement, curveMonotoneX } from 'd3'
+import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line, mouse, bisector, ContainerElement, curveMonotoneX, selectAll } from 'd3'
 
 import './LineChartComponent.css'
 
@@ -27,14 +27,20 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     )
   }
 
-  public componentDidMount() {
-    if (this.props.data.length > 0) {
-      this.drawChart()
-    }
-  }
-
   public componentDidUpdate() {
     if (this.props.data.length > 0) {
+      select('.chart')
+        .selectAll('g')
+        .remove()
+
+      select('.chart')
+        .selectAll('path')
+        .remove()
+
+      select('.chart')
+        .selectAll('circle')
+        .remove()
+
       this.drawChart()
     }
   }

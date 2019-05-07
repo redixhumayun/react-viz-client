@@ -4,6 +4,7 @@ import * as moment from 'moment'
 
 import BarChartComponent from '../Components/Charts/BarChartComponent'
 import LineChartComponent from '../Components/Charts/LineChartComponent'
+import DateRangeSelector from '../Components/DateRangeSelector/DateRangeSelector'
 
 enum ComponentType {
   Line = "Line",
@@ -52,17 +53,24 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
   }
 
   public render() {
-    return this.getComponentToRender()
+    return (
+      <div>
+        {this.getComponentToRender()}
+        <DateRangeSelector handleClick={this.setDateRange} />
+      </div>
+    )
   }
 
   public async componentDidMount() {
     const toDate = moment().format('YYYYMMDD')
     const fromDate = moment().subtract(1, 'months').format('YYYYMMDD')
-    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/averageEff/${fromDate}/${toDate}`)
-    const formattedData = this.filterDataForNullValues(this.orderByDate(this.formatDate(response.data)))
-    this.setState({
-      data: formattedData
-    })
+    this.fetchData(fromDate, toDate)
+  }
+
+  private setDateRange = (dateRange: number) => {
+    const toDate = moment().format('YYYYMMDD')
+    const fromDate = moment().subtract(dateRange, 'months').format('YYYYMMDD')
+    this.fetchData(fromDate, toDate)
   }
 
   private formatDate = (data: IDataShape[]): IDataShape[] => {
@@ -94,6 +102,17 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
   private filterDataForNullValues = (data: IDataShape[]): IDataShape[] => {
     return data.filter((datum: IDataShape): boolean => {
       return datum.EFF !== null
+    })
+  }
+
+  /**
+   * Fetch the average efficiency for the business for the given time range
+   */
+  private fetchData = async (fromDate: string, toDate: string) => {
+    const response = await axios.get(`${process.env.REACT_APP_BASEURL}/averageEff/${fromDate}/${toDate}`)
+    const formattedData = this.filterDataForNullValues(this.orderByDate(this.formatDate(response.data)))
+    this.setState({
+      data: formattedData
     })
   }
 

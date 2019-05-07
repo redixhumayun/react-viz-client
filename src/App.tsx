@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Provider } from 'react-redux'
-import './App.css';
 
 import ChartContainer from './Containers/ChartContainer'
 import store from './store/store'
