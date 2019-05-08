@@ -3,59 +3,38 @@ import * as React from 'react'
 import './DateRangeSelector.css'
 
 interface IDateRangeSelectorProps {
-  handleClick: (dateRange: number) => void
+  handleClick: (dateRange: number) => void,
+  dateRange: number
 }
 
-interface IDateRangeSelectorState {
-  selectedBtn: number
+const DateRangeSelector = (props: IDateRangeSelectorProps) => {
+  return (
+    <div className="date-range-container">
+      {renderButtons([1, 3, 6, 12], props.dateRange, props.handleClick)}
+    </div>
+  )
 }
 
-class DateRangeSelector extends React.Component<IDateRangeSelectorProps, IDateRangeSelectorState> {
-  constructor(props: IDateRangeSelectorProps) {
-    super(props)
-    this.state = {
-      selectedBtn: 1
-    }
-  }
-
-  public render() {
+const renderButtons = (btnsToRender: number[], dateRange: number, handleClick: (dateRange: number) => void) => {
+  return btnsToRender.map((num: number) => {
+    const className = getClassName(num, dateRange)
     return (
-      <div className="date-range-container">
-        {this.renderButtons([1, 3, 6, 12])}
-      </div>
+      <button
+        key={num}
+        className={`${className}`}
+        onClick={() => handleClick(num)}>
+        {`${num} Months`}
+      </button>
     )
-  }
+  })
+}
 
-  private renderButtons = (btnsToRender: number[]) => {
-    return btnsToRender.map((num: number) => {
-      const className = this.getClassName(num)
-      return (
-        <button
-          key={num}
-          className={`${className}`}
-          onClick={() => this.handleClick(num, num)}>
-          {`${num} Months`}
-        </button>
-      )
-    })
-  }
-
-  private getClassName = (num: number): string => {
-    const { selectedBtn } = this.state
-    if (selectedBtn === num) {
+const getClassName = (num: number, dateRange: number): string => {
+    if (num === dateRange) {
       return 'active-btn'
     } else {
       return ''
     }
-  }
-
-  private handleClick = (dateRange: number, btnSelected: number) => {
-    this.setState({
-      selectedBtn: btnSelected
-    }, () => {
-      this.props.handleClick(dateRange)
-    })
-  }
 }
 
 export default DateRangeSelector

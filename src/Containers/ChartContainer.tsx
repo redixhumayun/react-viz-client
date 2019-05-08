@@ -20,7 +20,8 @@ interface IPrevState {
 interface IBarChartState {
   prevState: IPrevState[],
   data: IDataShape[],
-  currentComponent: ComponentType
+  currentComponent: ComponentType,
+  dateRange: number
 }
 
 interface IDataShape {
@@ -34,7 +35,8 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
     this.state = {
       prevState: [],
       data: [],
-      currentComponent: ComponentType.Line
+      currentComponent: ComponentType.Line,
+      dateRange: 1
     }
   }
 
@@ -54,9 +56,18 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
 
   public render() {
     return (
-      <div>
+      <div style={{
+        backgroundColor: '#FFFF',
+        height: '100%'
+      }}>
         {this.getComponentToRender()}
-        <DateRangeSelector handleClick={this.setDateRange} />
+        {
+          //  Render this component only if the line chart is drawn
+          this.state.currentComponent === ComponentType.Line ? (
+            <DateRangeSelector handleClick={this.setDateRange}
+              dateRange={this.state.dateRange} />
+          ) : (null)
+        }
       </div>
     )
   }
@@ -70,6 +81,11 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
   private setDateRange = (dateRange: number) => {
     const toDate = moment().format('YYYYMMDD')
     const fromDate = moment().subtract(dateRange, 'months').format('YYYYMMDD')
+
+    //  Setting the state of date range so DateRangeSelector will update
+    this.setState({
+      dateRange
+    })
     this.fetchData(fromDate, toDate)
   }
 

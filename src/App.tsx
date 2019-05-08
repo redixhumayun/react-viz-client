@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 
 import ChartContainer from './Containers/ChartContainer'
 import store from './store/store'
+import './App.css'
 
 class App extends React.Component {
   public render() {
@@ -13,6 +14,10 @@ class App extends React.Component {
         </Provider>
       </div>
     );
+  }
+
+  public componentDidMount() {
+    document.body.style.background = '#F5F5FC'
   }
 }
 

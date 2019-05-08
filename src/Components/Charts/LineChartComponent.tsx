@@ -22,7 +22,11 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <svg className="chart" />
+        <div id="tooltip" className="hidden">
+          <p>EFF: <span id="eff_val">100</span>%</p>
+          <p>DATE: <span id="date_val"/></p>
+        </div>
+        <svg className="chart" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" />
       </div>
     )
   }
@@ -88,8 +92,8 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     const endDate = moment(data[data.length - 1].PRDDATE).toDate()
 
     //  Define all the dimensions required for showing the SVG
-    const height = 480
-    const width = 960
+    const height = 600
+    const width = 800
     const margin: { top: number, right: number, bottom: number, left: number } = { top: 30, right: 60, bottom: 30, left: 60 }
 
     //  Define the scales and axes required
@@ -129,44 +133,6 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
       .attr('width', width)
       .attr('height', height)
 
-    //  Define the tooltip
-    const tooltip = chart.append('g')
-                        .attr('class', 'tooltip')
-
-    //  Define the function for the tooltip
-    const callout = (g: any, value: string) => {
-      if (!value) {
-        return g.style("display", "none")
-      }
-
-      g
-        .style("display", null)
-        .style("pointer-events", "none")
-        .style("font", "10px sans-serif");
-
-      const path = g.selectAll("path")
-        .data([null])
-        .join("path")
-        .attr("fill", "white")
-        .attr("stroke", "black");
-
-      const text = g.selectAll("text")
-        .data([null])
-        .join("text")
-        .call((t: any) => t
-        .selectAll("tspan")
-        .data((value + "").split(/\n/))
-        .join("tspan")
-        .attr("x", 0)
-        .attr("y", (d: any, i: any) => `${i * 1.1}em`)
-        .text((d: any) => d));
-
-      const { x, y, width: w, height: h } = text.node().getBBox();
-
-      text.attr("transform", `translate(${-w / 2},${15 - y})`);
-      path.attr("d", `M${-w / 2 - 10},5H-5l5,-5l5,5H${w / 2 + 10}v${h + 20}h-${w + 20}z`);
-    }
-
     //  Define the line that is going to be shown
     const dataLine = line<IDataShape>()
       .x((d: IDataShape) => {
@@ -181,7 +147,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     chart.append('path')
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", "#0063FC")
       .attr("stroke-width", 1.5)
       .attr('d', dataLine)
 
@@ -189,30 +155,45 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     chart.selectAll('dot')
           .data(data)
           .join('circle')
-          .attr('r', 2.5)
+          .attr('r', 3)
           .attr('cx', (d) => xScale(moment(d.PRDDATE).toDate()))
           .attr('cy', (d) => yScale(d.EFF))
           .on('click', (e: IDataShape) => {
             const { PRDDATE } = e
             this.props.fetchSingleDataPoint(PRDDATE)
           })
+          .on('mouseover', function(this: ContainerElement, d) {
 
-    //  Add a mousemove event to the chart to display the tooltip
-    chart.on('mousemove', function (this: ContainerElement) {
-      const coordinates = mouse(this)
-      const { PRDDATE, EFF } = bisectorFn(coordinates[0])
+            //  Get the coordinates for the mouse event
+            //  Find the coordinates
+            const coordinates = mouse(this)
+            const { PRDDATE, EFF } = bisectorFn(coordinates[0])
+            select('#tooltip')
+              .style('left', coordinates[0] + 'px')
+              .style('top', coordinates[1] - 75 + 'px')
 
-      //  only transform the tooltip if both PRDDATE and EFF are not null
-      if (PRDDATE && EFF) {
-        tooltip.attr('transform', `translate(${xScale(PRDDATE)}, ${yScale(EFF)})`)
-        .call(callout, `${EFF}% \n ${PRDDATE.toDateString()}`)
-      }
-    })
+            select("#eff_val")
+              .text(EFF)
+            select("#date_val")
+              .text(PRDDATE.toDateString())
 
-    //  Add a mouseleave event to remove the tooltip
-    chart.on('mouseleave', function() {
-      tooltip.call(callout, null)
-    })
+            select('#tooltip')
+              .classed('hidden', false)
+
+            select(this)
+              .transition()
+              .duration(250)
+              .attr('r', 7.5)
+          })
+          .on('mouseout', function(d) {
+            select('#tooltip')
+              .classed('hidden', true)
+
+            select(this)
+              .transition()
+              .duration(250)
+              .attr('r', 3)
+          })
 
 
     //  Append the axes on to the chart

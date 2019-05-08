@@ -28,7 +28,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
         padding: '30px'
       }}>
         <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}><svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg></div>
-        <svg className="chart" />
+        <svg className="chart" viewBox="0 0 800 600" />
       </div>
     )
   }
@@ -75,8 +75,8 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
     const keys = this.getFactoryKeys(data)
 
     //  Define all the dimensions required for showing the SVG
-    const height = 480
-    const width = 960
+    const height = 600
+    const width = 800
     const margin: { top: number, right: number, bottom: number, left: number } = { top: 30, right: 30, bottom: 30, left: 30 }
 
     //  Define the scales and the axes required
