@@ -1,19 +1,20 @@
 import * as React from 'react'
-import { axisBottom, axisLeft, scaleLinear, scaleBand, select, event, easeLinear, ContainerElement, mouse } from 'd3'
+import * as moment from 'moment'
+import { axisBottom, axisLeft, scaleLinear, scaleBand, select, ContainerElement, mouse } from 'd3'
 
 import './BarChartComponent.css'
 
 
 interface IBarProps {
-  data: object[],
+  detail: string,
+  data: IDataShape[],
   fetchSingleFactoryData: (date: string | Date, location: string) => Promise<void>
   renderPrevChart: () => void
 }
 
 interface IDataShape {
-  PRDDATE: string,
-  EFF: number,
-  LOCATION: string
+  PRDDATE: Date,
+  FACTORY?: string
 }
 
 class BarChartComponent extends React.Component<IBarProps, {}> {
@@ -26,10 +27,12 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
         flexDirection: 'column',
         padding: '30px'
       }}>
-        <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}><svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg></div>
+        <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}>
+          <svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg>
+        </div>
         <div id="tooltip">
-          <p>EFF: <span id="eff_val">100</span>%</p>
-          <p>FACTORY: <span id="fac_key"/></p>
+          <p id="eff_val" />
+          <p id="fac_key" />
         </div>
         <svg className="chart" viewBox="0 0 800 600" />
       </div>
@@ -57,6 +60,10 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .select('.tooltip')
       .remove()
 
+    select('.chart')
+      .selectAll('text')
+      .remove()
+
     this.drawChart()
   }
 
@@ -65,7 +72,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       acc.push(...Object.keys(curr))
       return acc
     }, []).reduce((acc: string[], curr: string) => {
-      if (curr !== 'PRDDATE') {
+      if (curr !== 'PRDDATE' && curr !== 'FACTORY') {
         acc.push(curr)
       }
       return acc
@@ -74,7 +81,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
   }
 
   private drawChart = (): void => {
-    const { data } = this.props
+    const { data, detail } = this.props
     const keys = this.getFactoryKeys(data)
 
     //  Define all the dimensions required for showing the SVG
@@ -128,10 +135,17 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
           .style('opacity', 0.9)
 
         select("#eff_val")
-          .text(d.value)
+          .text(`EFF: ${d.value}%`)
 
-        select("#fac_key")
-          .text(d.key)
+        //  Decide what text to render based on what information the
+        //  bar chart is displaying
+        if (detail === 'Factory') {
+          select("#fac_key")
+            .text(`FACTORY: ${d.key}`)
+        } else  if (detail === 'Batch') {
+          select("#fac_key")
+          .text(`BATCH: ${d.key}`)
+        }
 
         select(this)
           .transition()
@@ -160,6 +174,23 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .call(xAxis)
     chart.append('g')
       .call(yAxis)
+
+    //  Add the svg text node for the chart title
+    let text = ''
+    if (detail === 'Factory') {
+      text = `Efficiency For All Factories On ${moment(data[0].PRDDATE).format('MMMM DD, YY')}`
+    } else if(detail === 'Batch') {
+      text = `Efficiency For All Batches Of ${data[0].FACTORY} On ${moment(data[0].PRDDATE).format('MMMM DD, YY')}`
+    }
+
+    chart.append('text')
+          .attr('x', width / 2)
+          .attr('y', margin.top)
+          .attr('text-anchor', 'middle')
+          .style('font-size', '18px')
+          .style('font-family', 'Futura')
+          .style("text-decoration", "underline")
+          .text(text)
 
   }
 }

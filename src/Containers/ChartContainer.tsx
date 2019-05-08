@@ -44,11 +44,21 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
     const { currentComponent, data } = this.state
     switch(currentComponent) {
       case ComponentType.Line:
-        return <LineChartComponent data={data} fetchSingleDataPoint={this.fetchSingleDayData} />
+        return <LineChartComponent
+                data={data}
+                fetchSingleDataPoint={this.fetchSingleDayData} />
       case ComponentType.BarFactory:
-        return <BarChartComponent data={data} fetchSingleFactoryData={this.fetchSingleFactoryData} renderPrevChart={this.renderPrevChart} />
+        return <BarChartComponent
+                detail='Factory'
+                data={data}
+                fetchSingleFactoryData={this.fetchSingleFactoryData}
+                renderPrevChart={this.renderPrevChart} />
       case ComponentType.BarBatch:
-        return <BarChartComponent data={data} fetchSingleFactoryData={this.fetchSingleFactoryData} renderPrevChart={this.renderPrevChart} />
+        return <BarChartComponent
+                detail='Batch'
+                data={data}
+                fetchSingleFactoryData={this.fetchSingleFactoryData}
+                renderPrevChart={this.renderPrevChart} />
       default:
         return null
     }
@@ -155,6 +165,7 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
     const formattedDate = moment(date).format('YYYYMMDD')
     const response = await axios.get(`${process.env.REACT_APP_BASEURL}/batchdata/${formattedDate}/${location}`)
     const updatedPrevState = this.updatePrevStateWithCurrentState()
+    response.data[0].FACTORY = location  //  update the response data to include the factory associated with this data
     this.setState({
       prevState: updatedPrevState,
       data: response.data,

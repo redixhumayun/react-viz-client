@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as moment from 'moment'
-import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line, mouse, bisector, ContainerElement, curveMonotoneX, selectAll } from 'd3'
+import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line, mouse, bisector, ContainerElement, curveMonotoneX } from 'd3'
 
 import './LineChartComponent.css'
 
@@ -162,7 +162,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
             //  Find the x and y values for this coordinate
             const coordinates = mouse(this)
             const { PRDDATE, EFF } = bisectorFn(coordinates[0])
-            console.log(PRDDATE)
+
             select('#tooltip')
               .style('left', coordinates[0] + 'px')
               .style('top', coordinates[1] - 75 + 'px')
@@ -201,6 +201,16 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
       .call(xAxis)
     chart.append('g')
       .call(yAxis)
+
+    //  Add the svg text node for the chart title
+    chart.append('text')
+          .attr('x', width / 2)
+          .attr('y', margin.top)
+          .attr('text-anchor', 'middle')
+          .style('font-size', '18px')
+          .style('font-family', 'Futura')
+          .style("text-decoration", "underline")
+          .text('Average Efficiency Across Factories')
   }
 }
 
