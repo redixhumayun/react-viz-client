@@ -86,6 +86,8 @@ class ChartContainer extends React.Component<{}, IBarChartState> {
     this.setState({
       dateRange
     })
+
+    //  Fetch the data after setting the dateRange state
     this.fetchData(fromDate, toDate)
   }
 

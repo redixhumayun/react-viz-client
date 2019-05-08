@@ -3,23 +3,30 @@
 }
 
 .chart rect {
-  fill: steelblue
-}
-
-div.tooltip {
-  position: absolute;
-  text-align: center;
-  width: 60px;
-  height: 30px;
-  padding: 2px;
-  font: 12px sans-serif;
-  background: lightsteelblue;
-  border: 0px;
-  border-radius: 4px;
-  pointer-events: none;
+  fill: #0063FC;
 }
 
 .back-arrow {
   align-self: flex-start;
   margin-left: 30px;
+}
+
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip {
+  position: absolute;
+  padding: 10px;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #FBFBFE;
+}
+
+#tooltip p {
+  margin: 0;
+  font-family: Futura;
+  font-size: 12px;
 }

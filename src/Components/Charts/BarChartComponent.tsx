@@ -1,6 +1,5 @@
 import * as React from 'react'
-import * as moment from 'moment'
-import { axisBottom, axisLeft, scaleLinear, scaleBand, select, event, easeLinear } from 'd3'
+import { axisBottom, axisLeft, scaleLinear, scaleBand, select, event, easeLinear, ContainerElement, mouse } from 'd3'
 
 import './BarChartComponent.css'
 
@@ -28,6 +27,10 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
         padding: '30px'
       }}>
         <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}><svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg></div>
+        <div id="tooltip" className="hidden">
+          <p>EFF: <span id="eff_val">100</span>%</p>
+          <p>FACTORY: <span id="fac_key"/></p>
+        </div>
         <svg className="chart" viewBox="0 0 800 600" />
       </div>
     )
@@ -77,7 +80,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
     //  Define all the dimensions required for showing the SVG
     const height = 600
     const width = 800
-    const margin: { top: number, right: number, bottom: number, left: number } = { top: 30, right: 30, bottom: 30, left: 30 }
+    const margin: { top: number, right: number, bottom: number, left: number } = { top: 30, right: 60, bottom: 30, left: 60 }
 
     //  Define the scales and the axes required
     const x = scaleBand()
@@ -96,10 +99,10 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .call(axisLeft(y))
 
     //  Define the tooltip
-    const tooltip = select('body')
-      .append('div')
-      .attr('class', 'tooltip')
-      .style('opacity', 0)
+    // const tooltip = select('body')
+    //   .append('div')
+    //   .attr('class', 'tooltip')
+    //   .style('opacity', 0)
 
     //  Select the SVG element and give dimensions
     const chart = select('.chart')
@@ -119,28 +122,62 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .attr('y', d => y(d.value))
       .attr('width', x.bandwidth())
       .attr('height', d => height - y(d.value) - margin.bottom)
-      .on('mouseover', d => {
-        tooltip.transition()
+      .on('mouseover', function(this: ContainerElement, d) {
+        //  Get the coordinates of the mouseover point
+        const coordinates = mouse(this)
+        select("#tooltip")
+          .style('left', coordinates[0] + 'px')
+          .style('top', coordinates[1] + 'px')
+
+        select("#eff_val")
+          .text(d.value)
+
+        select("#fac_key")
+          .text(d.key)
+
+        select("#tooltip")
+          .classed('hidden', false)
+
+        select(this)
+          .transition()
           .duration(250)
-          .ease(easeLinear)
-          .style('opacity', 0.9)
-        tooltip.html(d.key + "<br />" + d.value)
-          .style("left", (event.pageX) + "px")
-          .style("top", (event.pageY - 28) + "px")
+          .style('fill', '#FA8500')
       })
-      .on('mouseout', d => {
-        tooltip.transition()
+
+      .on('mouseout', function() {
+        select("#tooltip")
+          .classed('hidden', true)
+
+        select(this)
+          .transition()
           .duration(250)
-          .ease(easeLinear)
-          .style('opacity', 0)
+          .style('fill', '#0063FC')
       })
+
       .on('click', (d) => {
-        tooltip.transition()
-          .duration(250)
-          .ease(easeLinear)
-          .style('opacity', 0)
         this.props.fetchSingleFactoryData(d.date, d.key)
       })
+
+        // tooltip.transition()
+        //   .duration(250)
+        //   .ease(easeLinear)
+        //   .style('opacity', 0.9)
+        // tooltip.html(d.key + "<br />" + d.value)
+        //   .style("left", (event.pageX) + "px")
+        //   .style("top", (event.pageY - 28) + "px")
+      // .on('mouseout', d => {
+      //   tooltip.transition()
+      //     .duration(250)
+      //     .ease(easeLinear)
+      //     .style('opacity', 0)
+      // })
+      // .on('click', (d) => {
+      //   tooltip.transition()
+      //     .duration(250)
+      //     .ease(easeLinear)
+      //     .style('opacity', 0)
+      //   this.props.fetchSingleFactoryData(d.date, d.key)
+      // })
 
     //  Append the axes on to the chart
     chart.append('g')
