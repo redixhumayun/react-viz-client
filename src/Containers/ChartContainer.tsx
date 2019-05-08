@@ -25,7 +25,7 @@ interface IBarChartState {
 }
 
 interface IDataShape {
-  PRDDATE: string | Date,
+  PRDDATE: Date,
   EFF: number
 }
 

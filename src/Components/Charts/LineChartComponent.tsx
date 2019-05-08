@@ -5,7 +5,7 @@ import { axisBottom, axisLeft, scaleLinear, scaleTime, timeFormat, select, line,
 import './LineChartComponent.css'
 
 interface IDataShape {
-  PRDDATE: string | Date,
+  PRDDATE: Date,
   EFF: number
 }
 
@@ -22,7 +22,7 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <div id="tooltip" className="hidden">
+        <div id="tooltip">
           <p>EFF: <span id="eff_val">100</span>%</p>
           <p>DATE: <span id="date_val"/></p>
         </div>
@@ -31,7 +31,9 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     )
   }
 
-  //  This method is so that the chart area updates when a new date range is selected
+  /**
+   * This method is so that the chart area updates when a new date range is selected
+   */
   public componentDidUpdate() {
     //  Remove all previous SVG elements before rendering new chart
     select('.chart')
@@ -51,7 +53,9 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
     }
   }
 
-  //  This method is so that the chart area will re-render when the back button is hit from another chart
+  /**
+   * This method is so that the chart area will re-render when the back button is hit from another chart
+   */
   public componentDidMount() {
     if (this.props.data.length > 0) {
       this.drawChart()
@@ -75,17 +79,6 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
 
   private drawChart = (): void => {
     const { data } = this.props
-
-    //  Formate date from data for use in bisector function
-    const dateFormattedData: any = data.reduce((acc: IDataShape[], currObj) => {
-      const updatedObj = Object.assign(
-        {},
-        { ...currObj },
-        { PRDDATE: moment(currObj.PRDDATE).toDate() }
-      )
-      acc.push(updatedObj)
-      return acc
-    }, [])
 
     //  Define the dates that will be used for the x domain
     const startDate = moment(data[0].PRDDATE).toDate()
@@ -115,13 +108,13 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
 
     //  Define the bisector function to use for finding the position of the tooltip
     const bisectorFn = (value: number) => {
-      const bisect = bisector((d: any) => d.PRDDATE).left
+      const bisect = bisector((d: any) => d.PRDDATE).right
       const date = xScale.invert(value)
-      const index = bisect(dateFormattedData, date)
-      const a = dateFormattedData[index - 1]
-      const b = dateFormattedData[index]
+      const index = bisect(data, date)
+      const a = data[index - 1]
+      const b = data[index]
       try {
-        return date.getTime() - a.PRDDATE.getTime() > date.getTime() - b.PRDDATE.getTime() ? a : b
+        return date.getTime() - a.PRDDATE.getTime() > b.PRDDATE.getTime() - date.getTime() ? b : a
       } catch (e) {
         console.log(e)
         return a || { PRDDATE: null, EFF: null }  //  return undefined || object
@@ -162,32 +155,39 @@ class LineChartComponent extends React.Component<IBarProps, {}> {
             const { PRDDATE } = e
             this.props.fetchSingleDataPoint(PRDDATE)
           })
+
           .on('mouseover', function(this: ContainerElement, d) {
 
             //  Get the coordinates for the mouse event
-            //  Find the coordinates
+            //  Find the x and y values for this coordinate
             const coordinates = mouse(this)
             const { PRDDATE, EFF } = bisectorFn(coordinates[0])
+            console.log(PRDDATE)
             select('#tooltip')
               .style('left', coordinates[0] + 'px')
               .style('top', coordinates[1] - 75 + 'px')
+
+            select("#tooltip")
+              .transition()
+              .duration(250)
+              .style('opacity', 0.9)
 
             select("#eff_val")
               .text(EFF)
             select("#date_val")
               .text(PRDDATE.toDateString())
 
-            select('#tooltip')
-              .classed('hidden', false)
-
             select(this)
               .transition()
               .duration(250)
               .attr('r', 7.5)
           })
+
           .on('mouseout', function(d) {
-            select('#tooltip')
-              .classed('hidden', true)
+            select("#tooltip")
+              .transition()
+              .duration(250)
+              .style('opacity', 0)
 
             select(this)
               .transition()

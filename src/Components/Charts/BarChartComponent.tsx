@@ -27,7 +27,7 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
         padding: '30px'
       }}>
         <div style={{ alignSelf: 'flex-start' }} onClick={this.props.renderPrevChart}><svg className="back-arrow" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg></div>
-        <div id="tooltip" className="hidden">
+        <div id="tooltip">
           <p>EFF: <span id="eff_val">100</span>%</p>
           <p>FACTORY: <span id="fac_key"/></p>
         </div>
@@ -98,17 +98,10 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
     const yAxis = (g: any) => g.attr('transform', `translate(${margin.left}, 0)`)
       .call(axisLeft(y))
 
-    //  Define the tooltip
-    // const tooltip = select('body')
-    //   .append('div')
-    //   .attr('class', 'tooltip')
-    //   .style('opacity', 0)
-
     //  Select the SVG element and give dimensions
     const chart = select('.chart')
       .attr('width', width)
       .attr('height', height)
-
 
     //  Draw the actual chart with the required data
     chart.append('g')
@@ -129,14 +122,16 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
           .style('left', coordinates[0] + 'px')
           .style('top', coordinates[1] + 'px')
 
+        select("#tooltip")
+          .transition()
+          .duration(250)
+          .style('opacity', 0.9)
+
         select("#eff_val")
           .text(d.value)
 
         select("#fac_key")
           .text(d.key)
-
-        select("#tooltip")
-          .classed('hidden', false)
 
         select(this)
           .transition()
@@ -146,7 +141,9 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
 
       .on('mouseout', function() {
         select("#tooltip")
-          .classed('hidden', true)
+          .transition()
+          .duration(250)
+          .style('opacity', 0)
 
         select(this)
           .transition()
@@ -157,27 +154,6 @@ class BarChartComponent extends React.Component<IBarProps, {}> {
       .on('click', (d) => {
         this.props.fetchSingleFactoryData(d.date, d.key)
       })
-
-        // tooltip.transition()
-        //   .duration(250)
-        //   .ease(easeLinear)
-        //   .style('opacity', 0.9)
-        // tooltip.html(d.key + "<br />" + d.value)
-        //   .style("left", (event.pageX) + "px")
-        //   .style("top", (event.pageY - 28) + "px")
-      // .on('mouseout', d => {
-      //   tooltip.transition()
-      //     .duration(250)
-      //     .ease(easeLinear)
-      //     .style('opacity', 0)
-      // })
-      // .on('click', (d) => {
-      //   tooltip.transition()
-      //     .duration(250)
-      //     .ease(easeLinear)
-      //     .style('opacity', 0)
-      //   this.props.fetchSingleFactoryData(d.date, d.key)
-      // })
 
     //  Append the axes on to the chart
     chart.append('g')
